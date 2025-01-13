@@ -2,10 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function Menu() {
+function Menu({ setShoeMenu }) {
+  if (!setShoeMenu) return;
   return (
-    <div>
-      <div className="w-[209px] h-[816px] rounded-xl bg-rose-200 shadow-lg ">
+    <div
+      className=" bg-gray-500 w-full h-full fixed top-0 left-0 z-50 bg-opacity-50"
+      onClick={() => setShoeMenu(false)}
+    >
+      <div className="w-[209px] h-[816px] rounded-xl  bg-white shadow-lg absolute -bottom-44  transition-all duration-1000 ease-in-out">
         <ul className="p-4">
           <li className="flex items-center p-4 ">
             <Image
@@ -15,7 +19,7 @@ function Menu() {
               alt="home"
             ></Image>
             <Link href="#" className="text-green-400 mr-2">
-              Home
+              صفحه اصلی
             </Link>
           </li>
           <li className="flex items-center p-4 ">
@@ -26,7 +30,7 @@ function Menu() {
               alt="home"
             ></Image>
             <Link href="#" className=" mr-2">
-              Home
+              خدمات گردشگری
             </Link>
           </li>
           <li className="flex items-center p-4 ">
@@ -37,7 +41,7 @@ function Menu() {
               alt="home"
             ></Image>
             <Link href="#" className=" mr-2">
-              Home
+              درباره ما
             </Link>
           </li>
 
@@ -49,7 +53,7 @@ function Menu() {
               alt="home"
             ></Image>
             <Link href="#" className=" mr-2">
-              Home
+              تماس با ما
             </Link>
           </li>
         </ul>

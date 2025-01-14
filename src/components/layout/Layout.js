@@ -11,7 +11,7 @@ function Layout({ children }) {
       <header>
         <div className=" h-20">
           <div className="container mx-auto flex justify-between items-center h-full p-10">
-            <div className="hidden md:flex items-center ">
+            <div className="hidden md:flex items-center text-sm ">
               <Image
                 src="/images/logo.png"
                 width={100}
@@ -25,9 +25,16 @@ function Layout({ children }) {
                 <li className="m-4">تماس با ما</li>
               </ul>
             </div>
-                      <div className="hidden md:flex items-center border border-green-500 rounded-lg p-2 cursor-pointer">
-                          <Image src="/images/profile.svg" width={20} height={20} alt="user"></Image>
-                            <span className="mr-1 text-green-600 text-md">ورود  |  ثبت نام</span>
+            <div className="hidden md:flex items-center border border-green-500 rounded-lg p-2 cursor-pointer">
+              <Image
+                src="/images/profile.svg"
+                width={20}
+                height={20}
+                alt="user"
+              ></Image>
+              <span className="mr-1 text-green-600 text-md">
+                ورود | ثبت نام
+              </span>
             </div>
             <div onClick={() => setShowMenu(!showMenu)} className="md:hidden">
               <Image
@@ -49,6 +56,15 @@ function Layout({ children }) {
             </div>
           </div>
           {showMenu && <Menu setShoeMenu={setShowMenu} />}
+          <div>
+            <Image
+              src="/images/banner.jpg"
+              width={1440}
+              height={350}
+                          alt="banner"
+                          className="w-full"
+            ></Image>
+          </div>
         </div>
       </header>
       {children}

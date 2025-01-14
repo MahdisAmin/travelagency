@@ -11,7 +11,9 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-     
+      fontFamily: {
+       yekanbakh : ["bakh", "sans-serif"],
+     }
     },
   },
   plugins: [],

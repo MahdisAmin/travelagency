@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Menu from "../elements/Menu";
 
+
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -25,14 +26,14 @@ function Layout({ children }) {
                 <li className="m-4">تماس با ما</li>
               </ul>
             </div>
-            <div className="hidden md:flex items-center border border-green-500 rounded-lg p-2 cursor-pointer">
+            <div className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer">
               <Image
                 src="/images/profile.svg"
                 width={20}
                 height={20}
                 alt="user"
               ></Image>
-              <span className="mr-1 text-green-600 text-md">
+              <span className="mr-1 text-primary-green text-md">
                 ورود | ثبت نام
               </span>
             </div>
@@ -56,15 +57,7 @@ function Layout({ children }) {
             </div>
           </div>
           {showMenu && <Menu setShoeMenu={setShowMenu} />}
-          <div>
-            <Image
-              src="/images/banner.jpg"
-              width={1440}
-              height={350}
-                          alt="banner"
-                          className="w-full"
-            ></Image>
-          </div>
+         
         </div>
       </header>
       {children}

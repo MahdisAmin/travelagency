@@ -1,4 +1,6 @@
 import React from 'react'
+import Input from './Input';
+import Tours from './Tours';
 
 function Main() {
   return (
@@ -10,6 +12,8 @@ function Main() {
           برگزار کننده بهترین تور های داخلی و خارجی
         </span>
       </div>
+          <Input />
+          <Tours />
     </div>
   );
 }

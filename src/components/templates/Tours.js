@@ -8,9 +8,20 @@ export async function getTours() {
 
 async function Tours() {
   const tours = await getTours();
-    return <div>{tours.map(tourList => (<ul>
-        <li key={tourList.id}><Cards tourList={tourList} /></li>
-    </ul>)) }</div>;
+  return (
+    <>
+      <h1 className="mr-11 md:mr-36 text-[22px] font-semibold">همه تورها</h1>
+      <div className=" m-4 flex flex-col  items-center md:flex-row md:justify-center md:items-start md:flex-wrap">
+        {tours.map((tourList) => (
+          <ul key={tourList.id}>
+            <li>
+              <Cards tourList={tourList} />
+            </li>
+          </ul>
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default Tours;

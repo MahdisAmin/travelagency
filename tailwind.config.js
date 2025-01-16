@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         "primary-green": "#28A745",
+        "primary-gray": "#282828B2",
       },
       fontFamily: {
         yekanbakh: ["bakh", "sans-serif"],

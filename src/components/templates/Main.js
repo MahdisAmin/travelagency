@@ -1,6 +1,7 @@
 import React from 'react'
 import Input from './Input';
 import Tours from './Tours';
+import InfoBanner from '../elements/InfoBanner';
 
 function Main() {
   return (
@@ -13,7 +14,8 @@ function Main() {
         </span>
       </div>
           <Input />
-          <Tours />
+      <Tours />
+      <InfoBanner/>
     </div>
   );
 }

@@ -13,7 +13,7 @@ function Menu({ setShoeMenu }) {
         <ul className="p-4">
           <li className="flex items-center p-4 ">
             <Image
-              src="/images/home-2.svg"
+              src="/images/svgs/home-2.svg"
               width={16}
               height={16}
               alt="home"
@@ -24,7 +24,7 @@ function Menu({ setShoeMenu }) {
           </li>
           <li className="flex items-center p-4 ">
             <Image
-              src="/images/airplane-square.svg"
+              src="/images/svgs/airplane-square.svg"
               width={16}
               height={16}
               alt="home"
@@ -35,7 +35,7 @@ function Menu({ setShoeMenu }) {
           </li>
           <li className="flex items-center p-4 ">
             <Image
-              src="/images/volume-low.svg"
+              src="/images/svgs/volume-low.svg"
               width={16}
               height={16}
               alt="home"
@@ -47,7 +47,7 @@ function Menu({ setShoeMenu }) {
 
           <li className="flex items-center p-4 ">
             <Image
-              src="/images/call.svg"
+              src="/images/svgs/call.svg"
               width={16}
               height={16}
               alt="home"

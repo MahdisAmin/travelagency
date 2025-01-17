@@ -28,7 +28,7 @@ function Layout({ children }) {
             </div>
             <div className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer">
               <Image
-                src="/images/profile.svg"
+                src="/images/svgs/profile.svg"
                 width={20}
                 height={20}
                 alt="user"
@@ -39,7 +39,7 @@ function Layout({ children }) {
             </div>
             <div onClick={() => setShowMenu(!showMenu)} className="md:hidden">
               <Image
-                src="/images/menu.svg"
+                src="/images/svgs/menu.svg"
                 width={20}
                 height={20}
                 alt="menu"
@@ -48,7 +48,7 @@ function Layout({ children }) {
             </div>
             <div className="md:hidden">
               <Image
-                src="/images/signinbuttom.svg"
+                src="/images/svgs/signinbuttom.svg"
                 width={40}
                 height={40}
                 alt="logo"

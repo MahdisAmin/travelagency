@@ -15,7 +15,7 @@ function Input() {
           <div className=" col-span-6  md:col-span-3 border rounded-lg p-2 md:border-none ">
             <div className="flex item-center w-full  ">
               <Image
-                src="/images/location.svg"
+                src="/images//svgs/location.svg"
                 width={18}
                 height={18}
                 className="md:mr-4"
@@ -31,7 +31,7 @@ function Input() {
           <div className=" col-span-6  md:col-span-3 border rounded-lg p-2 md:border-none  ">
             <div className="flex item-center w-full mr-3 md:border-r-2 md:border-gray-300  ">
               <Image
-                src="/images/to.svg"
+                src="/images/svgs/to.svg"
                 width={18}
                 height={18}
                 className="md:mr-4"
@@ -47,7 +47,7 @@ function Input() {
           <div className=" col-span-12 md:col-span-3   border border-gray-200  rounded-lg p-2  md:border-none ">
             <div className="flex items-center mr-3 md:border-r-2 md:border-gray-300  ">
               <Image
-                src="/images/calendar.svg"
+                src="/images/svgs/calendar.svg"
                 width={18}
                 height={18}
                 className="md:mr-4"

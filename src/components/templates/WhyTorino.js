@@ -11,7 +11,7 @@ function WhyTorino() {
   ];
   return (
     <div>
-      <div className="flex items-center mr-11 md:mr-[80px]">
+      <div className="flex items-center mr-14 md:mr-[80px]">
         <div className="bg-gradient-to-r from-primary-green to-[#10411B] w-10 h-10 rounded-full  flex justify-center items-center">
           <Image
             src="/images/svgs/questionmark.svg"

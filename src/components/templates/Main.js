@@ -2,6 +2,7 @@ import React from 'react'
 import Input from './Input';
 import Tours from './Tours';
 import InfoBanner from '../elements/InfoBanner';
+import WhyTorino from './WhyTorino';
 
 function Main() {
   return (
@@ -15,7 +16,8 @@ function Main() {
       </div>
           <Input />
       <Tours />
-      <InfoBanner/>
+      <InfoBanner />
+      <WhyTorino/>
     </div>
   );
 }

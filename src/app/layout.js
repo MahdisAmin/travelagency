@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="font-yekanbakh max-w-[1440px]">
+      <body className="font-yekanbakh ">
         <Layout />
         <div>
           <Image

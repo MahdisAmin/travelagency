@@ -16,7 +16,7 @@ const ImageSlider = ({ images }) => {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={3}
-        spaceBetween={-100}
+        spaceBetween={-80}
         coverflowEffect={{
           rotate: 0,
           stretch: 180,

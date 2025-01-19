@@ -10,7 +10,7 @@ async function Tours() {
   const tours = await getTours();
   return (
     <>
-      <h1 className="mr-11 md:mr-36 text-[22px] font-semibold">همه تورها</h1>
+      <h1 className="mr-11 md:mr-30 text-[22px] font-semibold">همه تورها</h1>
       <div className=" m-4 flex flex-col justify-center  items-center md:flex-row  md:items-start md:flex-wrap">
         {tours.map((tourList) => (
           <ul key={tourList.id}>

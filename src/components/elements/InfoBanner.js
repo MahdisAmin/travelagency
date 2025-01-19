@@ -3,8 +3,8 @@ import React from "react";
 
 function InfoBanner() {
   return (
-    <div className="p-9 mx-auto max-w-[1400px]">
-      <div className="w-[376px] h-[220px]  m-auto md:w-full md:h-[251px] md:flex md:m-8 md:p-8 ">
+    <div className="p-9 mx-auto max-w-[1200px]">
+      <div className="w-[376px] h-[220px]  m-auto md:w-full md:h-[251px] md:flex md:mx-auto  md:p-8 ">
         <div className="bg-primary-green w-full h-[128px] p-3 flex rounded-t-xl md:w-[70%] md:h-full md:justify-between md:rounded-lg md:pr-1 lg:pr-7">
           <div>
             <h1 className="font-bold text-[22px] text-white md:text-[40px]">

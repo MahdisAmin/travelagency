@@ -9,7 +9,7 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 
 const ImageSlider = ({ images }) => {
   return (
-    <div className=" mb-4 md:w-[489px] mx-auto ">
+    <div className=" mb-8 md:w-[489px] mx-auto ">
       {/* // <div style={{ width: "689px", height: "379px", margin: "auto" }}  */}
       <Swiper
         effect="coverflow"

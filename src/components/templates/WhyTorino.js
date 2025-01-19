@@ -30,7 +30,7 @@ function WhyTorino() {
           ؟
         </h1>
       </div>
-      <div className="lg:flex mt-9 lg:justify-around lg:mr-12">
+      <div className="lg:flex mt-9 lg:justify-around lg:mr-4">
         <div className="hidden lg:block lg:mt-10  ">
           <h1 className="lg:font-medium lg:text-2xl ">تور طبیعت گردی و تاریخی</h1>
           <p className="lg:w-[400px] lg:mt-3 lg:text-justify ">

@@ -4,7 +4,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div >
+    <div>
       <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-full"></div>
       <div className="flex flex-col items-center justify-center  md:flex-row">
         <div className="flex items-center justify-center m-4 w-[350px]">
@@ -45,7 +45,7 @@ function Footer() {
         </div>
       </div>
       <div className="w-[400px] border-b border-dashed border-b-gray-400 mx-auto lg:w-[900px]"></div>
-      <div className="md:flex justify-around"> 
+      <div className="md:flex justify-around">
         <div className="flex items-center justify-around m-6 ">
           <div>
             <h1 className="font-bold text-2xl">تورینو</h1>
@@ -56,7 +56,7 @@ function Footer() {
               <Link href="/">بیمه مسافرتی</Link>
             </ul>
           </div>
-          <div>
+          <div >
             <h1 className="font-bold text-2xl ">خدمات مشتریان</h1>
             <ul className="flex flex-col mt-2 p-1 text-base">
               <Link href="/">پشتیبانی آنلاین</Link>
@@ -67,24 +67,27 @@ function Footer() {
           </div>
         </div>
         <div className="flex items-center justify-around  md:flex-col-reverse my-5">
-          <div className="flex items-center justify-center flex-wrap w-[150px]  md:w-[300px]">
+          <div className="flex items-center justify-center flex-wrap w-[150px]  md:w-full">
             <Image
               src="/images/1.png"
               width={50}
               height={50}
               alt="logo"
+              className="md:mx-2"
             ></Image>
             <Image
               src="/images/2.png"
               width={50}
               height={50}
               alt="logo"
+              className="md:mx-2"
             ></Image>
             <Image
               src="/images/3.png"
               width={50}
               height={50}
               alt="logo"
+              className="md:mx-2"
             ></Image>
             <Image
               src="/images/4.png"
@@ -97,6 +100,7 @@ function Footer() {
               width={50}
               height={50}
               alt="logo"
+              className="md:mx-2"
             ></Image>
           </div>
           <div>
@@ -105,6 +109,7 @@ function Footer() {
               width={100}
               height={100}
               alt="logo"
+              className="md:mx-2"
             ></Image>
             <p className="font-medium p-2 ">
               تلفن پشتیبانی: <span className="mr-2">021-8574</span>

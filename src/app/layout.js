@@ -1,20 +1,12 @@
-import localFont from "next/font/local";
+
 import "./globals.css";
 import Layout from "@/components/layout/Layout";
 import Main from "@/components/templates/Main";
 import Image from "next/image";
+import Footer from "@/components/layout/Footer";
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
 
 export const metadata = {
   title: "Create Next App",
@@ -36,7 +28,7 @@ export default function RootLayout({ children }) {
           ></Image>
         </div>
         <Main />
-       
+        <Footer/>
       </body>
     </html>
   );

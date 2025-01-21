@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Menu from "../elements/Menu";
+import Footer from "./Footer";
 
 
 function Layout({ children }) {
@@ -61,7 +62,7 @@ function Layout({ children }) {
         </div>
       </header>
       {children}
-      <footer></footer>
+    
     </>
   );
 }

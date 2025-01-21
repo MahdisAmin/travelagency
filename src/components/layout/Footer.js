@@ -4,8 +4,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <div>
-      <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-[900px]"></div>
+    <div >
+      <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-full"></div>
       <div className="flex flex-col items-center justify-center  md:flex-row">
         <div className="flex items-center justify-center m-4 w-[350px]">
           <Image
@@ -45,7 +45,7 @@ function Footer() {
         </div>
       </div>
       <div className="w-[400px] border-b border-dashed border-b-gray-400 mx-auto lg:w-[900px]"></div>
-      <div>
+      <div className="md:flex justify-around"> 
         <div className="flex items-center justify-around m-6 ">
           <div>
             <h1 className="font-bold text-2xl">تورینو</h1>
@@ -66,7 +66,55 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div></div>
+        <div className="flex items-center justify-around  md:flex-col-reverse my-5">
+          <div className="flex items-center justify-center flex-wrap w-[150px]  md:w-[300px]">
+            <Image
+              src="/images/1.png"
+              width={50}
+              height={50}
+              alt="logo"
+            ></Image>
+            <Image
+              src="/images/2.png"
+              width={50}
+              height={50}
+              alt="logo"
+            ></Image>
+            <Image
+              src="/images/3.png"
+              width={50}
+              height={50}
+              alt="logo"
+            ></Image>
+            <Image
+              src="/images/4.png"
+              width={50}
+              height={50}
+              alt="logo"
+            ></Image>
+            <Image
+              src="/images/5.png"
+              width={50}
+              height={50}
+              alt="logo"
+            ></Image>
+          </div>
+          <div>
+            <Image
+              src="/images/logo.png"
+              width={100}
+              height={100}
+              alt="logo"
+            ></Image>
+            <p className="font-medium p-2 ">
+              تلفن پشتیبانی: <span className="mr-2">021-8574</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-[900px]"></div>
+      <div className="text-center">
+        کلیه حقوق این وب سایت متعلق به تورینو میباشد.
       </div>
     </div>
   );

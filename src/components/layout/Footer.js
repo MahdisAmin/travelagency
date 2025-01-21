@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function Footer() {
   return (
     <div>
+      <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-[900px]"></div>
       <div className="flex flex-col items-center justify-center  md:flex-row">
         <div className="flex items-center justify-center m-4 w-[350px]">
           <Image
@@ -41,6 +43,30 @@ function Footer() {
             <p>رضایت بیش از 10هزار کاربر از تور های ما.</p>
           </div>
         </div>
+      </div>
+      <div className="w-[400px] border-b border-dashed border-b-gray-400 mx-auto lg:w-[900px]"></div>
+      <div>
+        <div className="flex items-center justify-around m-6 ">
+          <div>
+            <h1 className="font-bold text-2xl">تورینو</h1>
+            <ul className="flex flex-col mt-2 p-1 text-base">
+              <Link href="/">درباره ما</Link>
+              <Link href="/">تماس با ما</Link>
+              <Link href="/">تماس با ما</Link>
+              <Link href="/">بیمه مسافرتی</Link>
+            </ul>
+          </div>
+          <div>
+            <h1 className="font-bold text-2xl ">خدمات مشتریان</h1>
+            <ul className="flex flex-col mt-2 p-1 text-base">
+              <Link href="/">پشتیبانی آنلاین</Link>
+              <Link href="/">راهنمای خرید</Link>
+              <Link href="/">راهنمای استرداد</Link>
+              <Link href="/">پرسش و پاسخ</Link>
+            </ul>
+          </div>
+        </div>
+        <div></div>
       </div>
     </div>
   );

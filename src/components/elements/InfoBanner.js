@@ -6,13 +6,13 @@ function InfoBanner() {
     <div className="container mx-auto">
       <div className="p-9 ">
         <div className="w-[376px] h-[220px]  m-auto md:w-full md:h-[251px] md:flex md:mx-auto  md:p-8 ">
-          <div className="bg-primary-green w-full h-[128px] p-3 flex rounded-t-xl md:w-[70%] md:h-full md:justify-between md:rounded-lg md:pr-1 lg:pr-7">
-            <div>
-              <h1 className="font-bold text-[22px] text-white md:text-[40px]">
+          <div className="bg-primary-green w-full h-[128px] p-3 flex rounded-t-xl md:w-[70%] md:h-full md:justify-between md:rounded-lg md:px-2 lg:pr-7">
+            <div className="mx-5">
+              <h1 className="font-bold text-[22px] text-white md:text-[30px] lg:text-[40px]">
                 {" "}
                 خرید تلفی از <span className="text-[#10411B]">تورینو</span>
               </h1>
-              <p className="text-white md:text-[28px]">به هرکجا که میخواهید!</p>
+              <p className="text-white md:text-[20px] lg:text-[28px]">به هرکجا که میخواهید!</p>
             </div>
             <div>
               <Image

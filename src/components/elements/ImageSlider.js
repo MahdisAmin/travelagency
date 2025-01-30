@@ -9,14 +9,14 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 
 const ImageSlider = ({ images }) => {
   return (
-    <div className=" mb-8 md:w-[489px] mx-auto ">
+    <div className=" mb-8 w-[459px] mx-auto ">
       {/* // <div style={{ width: "689px", height: "379px", margin: "auto" }}  */}
       <Swiper
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={3}
-        spaceBetween={-80}
+        spaceBetween={-100}
         coverflowEffect={{
           rotate: 0,
           stretch: 180,

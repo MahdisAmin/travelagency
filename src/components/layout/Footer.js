@@ -4,10 +4,10 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="container mx-auto p-4">
-      <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-full"></div>
-      <div className="flex flex-col items-center justify-center  md:flex-row">
-        <div className="flex items-center justify-center m-4 w-[350px]">
+    <div className="container mx-auto">
+      <div className="w-[400px] border-t border-t-gray-400 mx-auto md:w-full"></div>
+      <div className="flex flex-col items-center justify-center  md:flex-row md:justify-between">
+        <div className="flex items-center justify-center m-4 w-[350px] md:w-[500px] lg:w-[350px]">
           <Image
             src="/images/best-price.png"
             width={60}
@@ -19,7 +19,7 @@ function Footer() {
             <p>بصرفه ترین و ارزان ترین قیمت تور را از ما بخواهید.</p>
           </div>
         </div>
-        <div className="flex items-center justify-center m-4 w-[350px]">
+        <div className="flex items-center justify-center m-4 w-[350px] md:w-[500px] lg:w-[350px]">
           <Image
             src="/images/support.png"
             width={60}
@@ -38,7 +38,7 @@ function Footer() {
             height={50}
             alt="price"
           ></Image>
-          <div className="mr-3 w-[500px]">
+          <div className="mr-3 w-[500px] md:w-[250px] lg:w-[500px]">
             <h1 className="font-bold ">رضایت کاربران</h1>
             <p>رضایت بیش از 10هزار کاربر از تور های ما.</p>
           </div>

@@ -10,7 +10,7 @@ function WhyTorino() {
     "/images/pic1.png",
   ];
   return (
-    <div>
+    <div className="conainer mx-auto mt-10">
       <div className="flex items-center  lg:mr-[130px] justify-center lg:justify-start">
         <div className="bg-gradient-to-r from-primary-green to-[#10411B] w-10 h-10 rounded-full  flex justify-center items-center">
           <Image

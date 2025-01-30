@@ -4,7 +4,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div>
+    <div className="container mx-auto p-4">
       <div className="w-[400px] border-t border-t-gray-400 mx-auto lg:w-full"></div>
       <div className="flex flex-col items-center justify-center  md:flex-row">
         <div className="flex items-center justify-center m-4 w-[350px]">

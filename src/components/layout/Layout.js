@@ -11,7 +11,7 @@ function Layout({ children }) {
   return (
     <>
       <header>
-        <div className=" h-20">
+        <div className=" h-20 container mx-auto flex justify-between items-center">
           <div className="container mx-auto flex justify-between items-center h-full p-10">
             <div className="hidden md:flex items-center text-sm ">
               <Image

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Menu from "../elements/Menu";
 import Footer from "./Footer";
 
-
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -58,11 +57,11 @@ function Layout({ children }) {
             </div>
           </div>
           {showMenu && <Menu setShoeMenu={setShowMenu} />}
-         
         </div>
       </header>
+
       {children}
-    
+      <Footer />
     </>
   );
 }

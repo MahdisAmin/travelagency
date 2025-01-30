@@ -1,12 +1,22 @@
-import React from 'react'
-import Input from './Input';
-import Tours from './Tours';
-import InfoBanner from '../elements/InfoBanner';
-import WhyTorino from './WhyTorino';
+import React from "react";
+import Input from "./Input";
+import Tours from "./Tours";
+import InfoBanner from "../elements/InfoBanner";
+import WhyTorino from "./WhyTorino";
+import Image from "next/image";
 
 function Main() {
   return (
     <div>
+      <div>
+        <Image
+          src="/images/banner.jpg"
+          width={1440}
+          height={350}
+          alt="banner"
+          className="w-full"
+        ></Image>
+      </div>
       <div className="mt-8 text-center text-base font-semibold  md:text-[28px]">
         <span className="text-primary-green">تورینو</span>
         <span className="text-[#595959]">
@@ -14,12 +24,12 @@ function Main() {
           برگزار کننده بهترین تور های داخلی و خارجی
         </span>
       </div>
-          <Input />
+      <Input />
       <Tours />
       <InfoBanner />
-      <WhyTorino/>
+      <WhyTorino />
     </div>
   );
 }
 
-export default Main
+export default Main;

@@ -1,4 +1,5 @@
 "use client";
+import { howmanyDays, toPersianNumber } from "@/utils/extras";
 import Image from "next/image";
 
 import React from "react";
@@ -13,17 +14,66 @@ export async function getTours(id) {
 
 async function TourDetails({params}) {
   const tours = await getTours(params.id);
-  const { id, title, image, options, price } = tours;
-  console.log(id)
+  const {
+    image,
+    title,
+    startDate,
+    endDate,
+    options,
+    price,
+    origin,
+    fleetVehicle,
+    availableSeats,
+    insurance,
+    id,
+  } = tours;
+  
+    const day = howmanyDays(startDate, endDate);
+    const night = +day - 1;
 
   return (
     <div className="container mx-auto">
       <div className="flex justify-center items-center m-3">
-       <img src={image} className="w-[330px] h-[220px] overflow-hidden" alt={title} />
+        <img
+          src={image}
+          className="w-[330px] h-[220px] overflow-hidden"
+          alt={title}
+        />
       </div>
-      <div>
-        <h1 className="text-[20px] font-semibold m-3">{title}</h1>
-         <p></p>
+      <div className=" flex justify-between items-center mx-20 ">
+        <h1 className="text-[20px] font-bold ">{title}</h1>
+        <p>
+          {toPersianNumber(day)} روز و {toPersianNumber(night)} شب
+        </p>
+      </div>
+      <div className="flex justify-between items-center mx-16 my-7">
+        <div className="flex justify-center items-center ">
+          <Image
+            src="/images/svgs/usertick.svg"
+            width={14}
+            height={14}
+            alt="usertick"
+          ></Image>
+          <span className="mr-3 text-[#7D7D7D]">تورلیدر از مبدا</span>
+        </div>
+        <div className="flex justify-center items-center">
+          <Image
+            src="/images/svgs/map.svg"
+            width={14}
+            height={14}
+            alt="map"
+          ></Image>
+          <span className="mr-3 text-[#7D7D7D]">برنامه سفر</span>
+        </div>
+        <div className="flex justify-center items-center">
+          <Image
+            src="/images/svgs/medal-star.svg"
+            width={14}
+            height={14}
+            alt="medal"
+          ></Image>
+          <span className="mr-3 text-[#7D7D7D]">تضمین کیفیت</span>
+        </div>
       </div>
     </div>
   );

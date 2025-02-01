@@ -75,6 +75,29 @@ async function TourDetails({params}) {
           <span className="mr-3 text-[#7D7D7D]">تضمین کیفیت</span>
         </div>
       </div>
+      <div className="flex justify-between items-center mx-16 my-7">
+        <div>
+          <div className="flex  items-center ">
+            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+            <p>حمل و نقل</p>
+          </div>
+          <p>{fleetVehicle}</p>
+        </div>
+        <div>
+          <div className="flex  items-center ">
+            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+            <p>حمل و نقل</p>
+          </div>
+          <p>{fleetVehicle}</p>
+        </div>
+        <div>
+          <div className="flex  items-center ">
+            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+            <p>حمل و نقل</p>
+          </div>
+          <p className="text-center">{fleetVehicle}</p>
+        </div>
+      </div>
     </div>
   );
 }

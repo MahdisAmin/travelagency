@@ -81,21 +81,32 @@ async function TourDetails({params}) {
             <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
             <p>حمل و نقل</p>
           </div>
-          <p>{fleetVehicle}</p>
-        </div>
-        <div>
-          <div className="flex  items-center ">
-            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
-            <p>حمل و نقل</p>
-          </div>
-          <p>{fleetVehicle}</p>
-        </div>
-        <div>
-          <div className="flex  items-center ">
-            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
-            <p>حمل و نقل</p>
-          </div>
           <p className="text-center">{fleetVehicle}</p>
+        </div>
+        <div>
+          <div className="flex  items-center ">
+            <Image
+              src="/images/svgs/twousers.svg"
+              width={16}
+              height={16}
+            ></Image>
+            <p>ظرفیت</p>
+          </div>
+          <p className="tracking-wider text-center">
+            {" "}
+            حداکثر {toPersianNumber(availableSeats)} نفر
+          </p>
+        </div>
+        <div>
+          <div className="flex  items-center ">
+            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+            <p>بیمه</p>
+          </div>
+          {insurance ? (
+            <p>بیمه {toPersianNumber(50)} دیناری</p>
+          ) : (
+            <p>بیمه ندارد</p>
+          )}
         </div>
       </div>
     </div>

@@ -42,7 +42,7 @@ async function TourDetails({params}) {
       </div>
       <div className=" flex justify-between items-center mx-20 ">
         <h1 className="text-[20px] font-bold ">{title}</h1>
-        <p>
+        <p className="tracking-widest">
           {toPersianNumber(day)} روز و {toPersianNumber(night)} شب
         </p>
       </div>
@@ -79,7 +79,7 @@ async function TourDetails({params}) {
         <div>
           <div className="flex  items-center ">
             <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
-            <p>حمل و نقل</p>
+            <p className="mr-1 text-[#444444]">حمل و نقل</p>
           </div>
           <p className="text-center">{fleetVehicle}</p>
         </div>
@@ -90,7 +90,7 @@ async function TourDetails({params}) {
               width={16}
               height={16}
             ></Image>
-            <p>ظرفیت</p>
+            <p className="mr-1 text-[#444444]">ظرفیت</p>
           </div>
           <p className="tracking-wider text-center">
             {" "}
@@ -99,11 +99,15 @@ async function TourDetails({params}) {
         </div>
         <div>
           <div className="flex  items-center ">
-            <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
-            <p>بیمه</p>
+            <Image
+              src="/images/svgs/security.svg"
+              width={16}
+              height={16}
+            ></Image>
+            <p className="mr-1 text-[#444444]">بیمه</p>
           </div>
           {insurance ? (
-            <p>بیمه {toPersianNumber(50)} دیناری</p>
+            <p className="tracking-wider">بیمه {toPersianNumber(50)} دیناری</p>
           ) : (
             <p>بیمه ندارد</p>
           )}

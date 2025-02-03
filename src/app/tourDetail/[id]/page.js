@@ -36,7 +36,7 @@ async function TourDetails({params}) {
       <div className="flex justify-center items-center m-3">
         <img
           src={image}
-          className="w-[330px] h-[220px] overflow-hidden"
+          className="w-[330px] h-[220px] overflow-hidden rounded-lg "
           alt={title}
         />
       </div>
@@ -107,7 +107,9 @@ async function TourDetails({params}) {
             <p className="mr-1 text-[#444444]">بیمه</p>
           </div>
           {insurance ? (
-            <p className="tracking-wider">بیمه {toPersianNumber(50)} دیناری</p>
+            <p className="tracking-wider">
+              بیمه {toPersianNumber(50)} هزار دیناری
+            </p>
           ) : (
             <p>بیمه ندارد</p>
           )}

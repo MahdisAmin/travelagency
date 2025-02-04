@@ -85,11 +85,11 @@ async function TourDetails({ params }) {
           </div>
         </div>
       </div>
-      <div className="bg-red-400 md:flex md:flex-col-reverse">
+      <div className="md:flex md:flex-col-reverse">
         <div className="flex justify-between items-center mx-16 my-7 ">
           <div>
             <div className="flex  items-center m-2">
-              <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+              <Image src="/images/svgs/routing.svg" width={16} height={16}></Image>
               <p className="mr-1 text-[#444444] "> مبدا</p>
             </div>
             <p className="text-center font-semibold mt-3 text-sm">
@@ -98,7 +98,7 @@ async function TourDetails({ params }) {
           </div>
           <div>
             <div className="flex  items-center m-2">
-              <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+              <Image src="/images/svgs/calendar2.svg" width={16} height={16} ></Image>
               <p className="mr-1 text-[#444444] ">تاریخ رفت</p>
             </div>
             <p className="text-center font-semibold mt-3 text-sm">
@@ -107,7 +107,7 @@ async function TourDetails({ params }) {
           </div>
           <div>
             <div className="flex  items-center m-2">
-              <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+              <Image src="/images/svgs/calendar2.svg" width={16} height={16}></Image>
               <p className="mr-1 text-[#444444] "> تاریخ برگشت</p>
             </div>
             <p className="text-center font-semibold mt-3 text-sm">

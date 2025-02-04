@@ -90,6 +90,33 @@ async function TourDetails({ params }) {
           <div>
             <div className="flex  items-center m-2">
               <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+              <p className="mr-1 text-[#444444] "> مبدا</p>
+            </div>
+            <p className="text-center font-semibold mt-3 text-sm">
+              {fleetVehicle}
+            </p>
+          </div>
+          <div>
+            <div className="flex  items-center m-2">
+              <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+              <p className="mr-1 text-[#444444] ">تاریخ رفت</p>
+            </div>
+            <p className="text-center font-semibold mt-3 text-sm">
+              {fleetVehicle}
+            </p>
+          </div>
+          <div>
+            <div className="flex  items-center m-2">
+              <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
+              <p className="mr-1 text-[#444444] "> تاریخ برگشت</p>
+            </div>
+            <p className="text-center font-semibold mt-3 text-sm">
+              {fleetVehicle}
+            </p>
+          </div>
+          <div>
+            <div className="flex  items-center m-2">
+              <Image src="/images/svgs/bus.svg" width={16} height={16}></Image>
               <p className="mr-1 text-[#444444] ">حمل و نقل</p>
             </div>
             <p className="text-center font-semibold mt-3 text-sm">

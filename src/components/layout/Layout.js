@@ -7,8 +7,8 @@ import Auth from "../modal/Auth";
 
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false)
- 
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <header>
@@ -28,7 +28,10 @@ function Layout({ children }) {
                 <li className="m-4">تماس با ما</li>
               </ul>
             </div>
-            <div onClick={() => setShowModal(true)} className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer">
+            <div
+              onClick={() => setShowModal(true)}
+              className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer"
+            >
               <Image
                 src="/images/svgs/profile.svg"
                 width={20}
@@ -49,7 +52,7 @@ function Layout({ children }) {
                 className="cursor-pointer"
               ></Image>
             </div>
-            <div className="md:hidden">
+            <div className="md:hidden" onClick={() => setShowMenu(!showMenu)}>
               <Image
                 src="/images/svgs/signinbuttom.svg"
                 width={40}

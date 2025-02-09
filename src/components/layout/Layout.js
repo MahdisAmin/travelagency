@@ -28,6 +28,7 @@ function Layout({ children }) {
                 <li className="m-4">تماس با ما</li>
               </ul>
             </div>
+            <Auth setShowModal={setShowModal} showModal={showModal} />
             <div
               onClick={() => setShowModal(true)}
               className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer"
@@ -42,7 +43,6 @@ function Layout({ children }) {
                 ورود | ثبت نام
               </span>
             </div>
-            <Auth setShowModal={setShowModal} showModal={showModal} />
             <div onClick={() => setShowMenu(!showMenu)} className="md:hidden">
               <Image
                 src="/images/svgs/menu.svg"
@@ -52,7 +52,7 @@ function Layout({ children }) {
                 className="cursor-pointer"
               ></Image>
             </div>
-            <div className="md:hidden" onClick={() => setShowMenu(!showMenu)}>
+            <div className="md:hidden" onClick={() => setShowModal(true)}>
               <Image
                 src="/images/svgs/signinbuttom.svg"
                 width={40}

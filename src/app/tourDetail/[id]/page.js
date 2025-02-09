@@ -19,7 +19,6 @@ async function TourDetails({ params }) {
     title,
     startDate,
     endDate,
-    options,
     price,
     origin,
     fleetVehicle,

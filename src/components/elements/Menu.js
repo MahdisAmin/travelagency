@@ -18,7 +18,7 @@ function Menu({ setShoeMenu }) {
               height={16}
               alt="home"
             ></Image>
-            <Link href="#" className="text-green-400 mr-2">
+            <Link href="/" className="text-green-400 mr-2">
               صفحه اصلی
             </Link>
           </li>
@@ -29,7 +29,7 @@ function Menu({ setShoeMenu }) {
               height={16}
               alt="home"
             ></Image>
-            <Link href="#" className=" mr-2">
+            <Link href="/" className=" mr-2">
               خدمات گردشگری
             </Link>
           </li>
@@ -40,7 +40,7 @@ function Menu({ setShoeMenu }) {
               height={16}
               alt="home"
             ></Image>
-            <Link href="#" className=" mr-2">
+            <Link href="/" className=" mr-2">
               درباره ما
             </Link>
           </li>
@@ -52,7 +52,7 @@ function Menu({ setShoeMenu }) {
               height={16}
               alt="home"
             ></Image>
-            <Link href="#" className=" mr-2">
+            <Link href="/" className=" mr-2">
               تماس با ما
             </Link>
           </li>

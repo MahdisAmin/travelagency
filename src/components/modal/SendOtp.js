@@ -1,7 +1,29 @@
-
-import { toPersianNumber } from "@/utils/extras";
+import { sendOtp } from "@/config/services/mutations";
+import { isValidMobile, toPersianNumber } from "@/utils/extras";
+import { useState } from "react";
 import { MdClose } from "react-icons/md";
-function SendOtp({ setShowModal }) {
+function SendOtp({ setShowModal, mobile, setMobile }) {
+  const { isPending, mutate } = sendOtp();
+  const [error, setError] = useState("");
+  const sendCodeHandler = () => {
+    if (isPending) return;
+    if (!isValidMobile(mobile)) return setError("شماره معتبر وارد کنید!");
+    setError("");
+    mutate(
+      { mobile },
+      {
+        onSuccess: () => {
+          // toast.success(data?.data?.message);
+          // toast(data?.data?.code);
+          alert(mobile)
+          // setStep(2);
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      }
+    );
+  };
   return (
     <div className="flex items-center justify-center w-full h-full bg-[#00000080] fixed top-0 left-0 z-[10000]">
       <div className="w-[352px] h-[365px] rounded-lg bg-white p-5 relative md:w-[561px] ">
@@ -15,12 +37,18 @@ function SendOtp({ setShowModal }) {
           <div>
             <label>شماره موبایل خود را وارد کنید</label>
             <input
-              className=" mt-3 border border-gray-300 p-2 w-full rounded-lg"
+              className=" mt-3 border border-gray-300 p-2 w-full rounded-lg outline-none"
               placeholder={toPersianNumber("4253***0912")}
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
             />
+          {!!error && <span className="text-red-600 text-sm">{error}</span>}
           </div>
           <div>
-            <button className="bg-primary-green w-full p-2 text-white rounded-lg mt-3">
+            <button
+              onClick={sendCodeHandler}
+              className="bg-primary-green w-full p-2 text-white rounded-lg mt-3"
+            >
               ارسال کد تایید
             </button>
           </div>

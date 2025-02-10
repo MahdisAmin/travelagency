@@ -1,3 +1,4 @@
+import TanstackQueryProvider from "@/components/provider/TanstackQueryProvider";
 import "./globals.css";
 import Layout from "@/components/layout/Layout";
 
@@ -10,9 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className="font-yekanbakh  ">
-        <>
+        <TanstackQueryProvider>
           <Layout>{children}</Layout>
-        </>
+        </TanstackQueryProvider>
       </body>
     </html>
   );

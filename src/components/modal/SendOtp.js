@@ -1,11 +1,11 @@
 
 import { toPersianNumber } from "@/utils/extras";
 import { MdClose } from "react-icons/md";
-function SendOtp() {
+function SendOtp({ setShowModal }) {
   return (
     <div className="flex items-center justify-center w-full h-full bg-[#00000080] fixed top-0 left-0 z-[10000]">
       <div className="w-[352px] h-[365px] rounded-lg bg-white p-5 relative md:w-[561px] ">
-        <div className="flex justify-end">
+        <div className="flex justify-end" onClick={() => setShowModal(false)}>
           <MdClose size={15} className="cursor-pointer" />
         </div>
         <div className="flex flex-col justify-around h-full">

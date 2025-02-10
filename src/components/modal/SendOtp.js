@@ -1,5 +1,6 @@
 import { sendOtp } from "@/config/services/mutations";
 import { isValidMobile, toPersianNumber } from "@/utils/extras";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 function SendOtp({ setShowModal, mobile, setMobile }) {
@@ -15,7 +16,7 @@ function SendOtp({ setShowModal, mobile, setMobile }) {
         onSuccess: () => {
           // toast.success(data?.data?.message);
           // toast(data?.data?.code);
-          alert(mobile)
+          alert(mobile);
           // setStep(2);
         },
         onError: (error) => {
@@ -26,7 +27,13 @@ function SendOtp({ setShowModal, mobile, setMobile }) {
   };
   return (
     <div className="flex items-center justify-center w-full h-full bg-[#00000080] fixed top-0 left-0 z-[10000]">
-      <div className="w-[352px] h-[365px] rounded-lg bg-white p-5 relative md:w-[561px] ">
+      <motion.div
+        className="w-[352px] h-[365px] rounded-lg bg-white p-5 relative md:w-[561px]"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex justify-end" onClick={() => setShowModal(false)}>
           <MdClose size={15} className="cursor-pointer" />
         </div>
@@ -42,7 +49,7 @@ function SendOtp({ setShowModal, mobile, setMobile }) {
               value={mobile}
               onChange={(e) => setMobile(e.target.value)}
             />
-          {!!error && <span className="text-red-600 text-sm">{error}</span>}
+            {!!error && <span className="text-red-600 text-sm">{error}</span>}
           </div>
           <div>
             <button
@@ -53,7 +60,7 @@ function SendOtp({ setShowModal, mobile, setMobile }) {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

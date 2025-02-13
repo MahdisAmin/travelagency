@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import SendOtp from './SendOtp'
-import CheckOtp from './CheckOtp'
+import React, { useState } from "react";
+import SendOtp from "./SendOtp";
+import CheckOtp from "./CheckOtp";
 
 function Auth({ showModal, setShowModal }) {
-  if(!showModal)return
-  const [step, setstep] = useState(1)
-  const [mobile , setMobile]=useState("")
+  if (!showModal) return;
+  const [step, setstep] = useState(1);
+  const [mobile, setMobile] = useState("");
   return (
     <div>
       {step === 1 && (
@@ -16,9 +16,12 @@ function Auth({ showModal, setShowModal }) {
           setMobile={setMobile}
         />
       )}
-      {step === 2 && <CheckOtp />}
+
+      {step === 2 && (
+        <CheckOtp mobile={mobile} step={step} setShowModal={setShowModal} />
+      )}
     </div>
   );
 }
 
-export default Auth
+export default Auth;

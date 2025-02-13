@@ -3,7 +3,7 @@ import { isValidMobile, toPersianNumber } from "@/utils/extras";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
-function SendOtp({ setShowModal, mobile, setMobile }) {
+function SendOtp({ setShowModal, mobile, setMobile, setStep }) {
   const { isPending, mutate } = sendOtp();
   const [error, setError] = useState("");
   const sendCodeHandler = () => {
@@ -16,8 +16,7 @@ function SendOtp({ setShowModal, mobile, setMobile }) {
         onSuccess: () => {
           // toast.success(data?.data?.message);
           // toast(data?.data?.code);
-          alert(mobile);
-          // setStep(2);
+          setStep(2);
         },
         onError: (error) => {
           console.log(error);

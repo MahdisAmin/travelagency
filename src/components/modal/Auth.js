@@ -4,13 +4,13 @@ import CheckOtp from "./CheckOtp";
 
 function Auth({ showModal, setShowModal }) {
   if (!showModal) return;
-  const [step, setstep] = useState(1);
+  const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
   return (
     <div>
       {step === 1 && (
         <SendOtp
-          step={step}
+          setStep={setStep}
           setShowModal={setShowModal}
           mobile={mobile}
           setMobile={setMobile}
@@ -18,7 +18,11 @@ function Auth({ showModal, setShowModal }) {
       )}
 
       {step === 2 && (
-        <CheckOtp mobile={mobile} step={step} setShowModal={setShowModal} />
+        <CheckOtp
+          mobile={mobile}
+          setStep={setStep}
+          setShowModal={setShowModal}
+        />
       )}
     </div>
   );

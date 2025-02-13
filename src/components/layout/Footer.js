@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="container mx-auto">
       <div className="w-[400px] border-t border-t-gray-400 mx-auto md:w-full"></div>
-      <div className="flex flex-col items-center justify-center  md:flex-row md:justify-between">
+      <div className="flex flex-col items-center justify-center mr-11  md:flex-row md:justify-between">
         <div className="flex items-center justify-center m-4 w-[350px] md:w-[500px] lg:w-[350px]">
           <Image
             src="/images/best-price.png"

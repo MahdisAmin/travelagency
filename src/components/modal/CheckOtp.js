@@ -38,17 +38,20 @@ function CheckOtp({ mobile, setStep, setShowModal }) {
       >
         <div className="flex justify-end">
           <span onClick={() => setStep(1)}>
-            <FaArrowLeft />
+            <FaArrowLeft className="text-sm cursor-pointer" />
           </span>
         </div>
         <div>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center mt-5">
             <h2 className="font-bold text-2xl mt-8 mb-2">
               کد تایید را وارد کنید
             </h2>
             <p>کد تایید به شماره {mobile} ارسال شد</p>
           </div>
-          <div style={{ direction: "ltr" , marginTop:"10px" }} className="md:flex justify-center items-center">
+          <div
+            style={{ direction: "ltr", marginTop: "10px" }}
+            className="md:flex justify-center items-center"
+          >
             <OtpInput
               value={code}
               onChange={handleChange}
@@ -62,8 +65,10 @@ function CheckOtp({ mobile, setStep, setShowModal }) {
               }}
             />
           </div>
-          <span>تا ارسال کد مجدد</span>
-          <button onClick={checkCodeHandler}>ورود به تورینو</button>
+          <div className="flex flex-col p-4">
+            <span className="text-center text-sm">تا ارسال کد مجدد</span>
+            <button onClick={checkCodeHandler} className="bg-primary-green mt-6 text-white p-2 rounded-lg">ورود به تورینو</button>
+          </div>
         </div>
       </motion.div>
     </div>

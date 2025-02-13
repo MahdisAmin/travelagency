@@ -36,20 +36,32 @@ function CheckOtp({ mobile, setStep, setShowModal }) {
         exit={{ opacity: 0, y: 50 }}
         transition={{ duration: 0.5 }}
       >
-        <div >
+        <div className="flex justify-end">
           <span onClick={() => setStep(1)}>
             <FaArrowLeft />
           </span>
         </div>
         <div>
-          <h2>کد تایید را وارد کنید</h2>
-          <p>کد تایید به شماره {mobile} ارسال شد</p>
-          <OtpInput
-            value={code}
-            onChange={handleChange}
-            numInputs={6}
-            
-          />
+          <div className="flex flex-col justify-center items-center">
+            <h2 className="font-bold text-2xl mt-8 mb-2">
+              کد تایید را وارد کنید
+            </h2>
+            <p>کد تایید به شماره {mobile} ارسال شد</p>
+          </div>
+          <div style={{ direction: "ltr" , marginTop:"10px" }} className="md:flex justify-center items-center">
+            <OtpInput
+              value={code}
+              onChange={handleChange}
+              numInputs={6}
+              inputStyle={{
+                border: "1px solid silver",
+                borderRadius: "5px",
+                width: "49px",
+                height: "45px",
+                marginRight: "5px",
+              }}
+            />
+          </div>
           <span>تا ارسال کد مجدد</span>
           <button onClick={checkCodeHandler}>ورود به تورینو</button>
         </div>

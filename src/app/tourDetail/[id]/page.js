@@ -1,4 +1,4 @@
-"use client";
+
 import { howmanyDays, toPersianNumber } from "@/utils/extras";
 import moment from "jalali-moment";
 import Image from "next/image";

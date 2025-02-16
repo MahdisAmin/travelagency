@@ -39,46 +39,6 @@ function Layout({ children }) {
               </ul>
             </div>
             <Auth setShowModal={setShowModal} showModal={showModal} />
-            {data?.data ? (
-              <>
-                <div onClick={dropDownHandler} className="relative cursor-pointer" >
-                  <h4 className="flex text-primary-green items-center">
-                    <FaUser
-                      style={{
-                        marginBottom:"2px",
-                        marginLeft: "5px",
-                        fontSize: "15px",
-                       
-                      }}
-                    />
-                    {toPersianNumber(phoneNumber)}
-                    <FaChevronDown
-                      style={{
-                       
-                        marginRight: "5px",
-                        fontSize: "15px",
-                      }}
-                    />
-                  </h4>
-                <Dropdown show={showDropdown} phone={phoneNumber} />
-                </div>
-              </>
-            ) : (
-              <div
-                onClick={() => setShowModal(true)}
-                className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer"
-              >
-                <Image
-                  src="/images/svgs/profile.svg"
-                  width={20}
-                  height={20}
-                  alt="user"
-                ></Image>
-                <span className="mr-1 text-primary-green text-md">
-                  ورود | ثبت نام
-                </span>
-              </div>
-            )}
             <div onClick={() => setShowMenu(!showMenu)} className="md:hidden">
               <Image
                 src="/images/svgs/menu.svg"
@@ -88,15 +48,58 @@ function Layout({ children }) {
                 className="cursor-pointer"
               ></Image>
             </div>
-            <div className="md:hidden" onClick={() => setShowModal(true)}>
-              <Image
-                src="/images/svgs/signinbuttom.svg"
-                width={40}
-                height={40}
-                alt="logo"
-                className="cursor-pointer"
-              ></Image>
-            </div>
+            {data?.data ? (
+              <>
+                <div
+                  onClick={dropDownHandler}
+                  className="relative cursor-pointer"
+                >
+                  <h4 className="flex text-primary-green items-center">
+                    <FaUser
+                      style={{
+                        marginBottom: "2px",
+                        marginLeft: "5px",
+                        fontSize: "15px",
+                      }}
+                    />
+                    {toPersianNumber(phoneNumber)}
+                    <FaChevronDown
+                      style={{
+                        marginRight: "5px",
+                        fontSize: "15px",
+                      }}
+                    />
+                  </h4>
+                  <Dropdown show={showDropdown} phone={phoneNumber} />
+                </div>
+              </>
+            ) : (
+              <>
+                <div
+                  onClick={() => setShowModal(true)}
+                  className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer"
+                >
+                  <Image
+                    src="/images/svgs/profile.svg"
+                    width={20}
+                    height={20}
+                    alt="user"
+                  ></Image>
+                  <span className="mr-1 text-primary-green text-md">
+                    ورود | ثبت نام
+                  </span>
+                </div>
+                <div className="md:hidden" onClick={() => setShowModal(true)}>
+                  <Image
+                    src="/images/svgs/signinbuttom.svg"
+                    width={40}
+                    height={40}
+                    alt="logo"
+                    className="cursor-pointer"
+                  ></Image>
+                </div>
+              </>
+            )}
           </div>
           {showMenu && <Menu setShoeMenu={setShowMenu} />}
         </div>

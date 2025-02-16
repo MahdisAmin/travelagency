@@ -1,4 +1,5 @@
-const { useQuery } = require("react-query");
+import { useQuery } from "@tanstack/react-query";
+
 const { default: api } = require("../core/api");
 
 export const useGetUserData = () => {

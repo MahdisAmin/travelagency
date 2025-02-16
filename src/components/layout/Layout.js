@@ -4,10 +4,20 @@ import React, { useState } from "react";
 import Menu from "../elements/Menu";
 import Footer from "./Footer";
 import Auth from "../modal/Auth";
+import { useGetUserData } from "@/config/services/query";
+import { FaChevronDown, FaUser } from "react-icons/fa";
+import Dropdown from "../elements/DropDown";
+import { toPersianNumber } from "@/utils/extras";
 
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showDropdown, setShowDropdown] = useState();
+  const { isPending, data } = useGetUserData();
+  const phoneNumber = data?.data.mobile;
+  const dropDownHandler = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <>
@@ -29,20 +39,46 @@ function Layout({ children }) {
               </ul>
             </div>
             <Auth setShowModal={setShowModal} showModal={showModal} />
-            <div
-              onClick={() => setShowModal(true)}
-              className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer"
-            >
-              <Image
-                src="/images/svgs/profile.svg"
-                width={20}
-                height={20}
-                alt="user"
-              ></Image>
-              <span className="mr-1 text-primary-green text-md">
-                ورود | ثبت نام
-              </span>
-            </div>
+            {data?.data ? (
+              <>
+                <div onClick={dropDownHandler} className="relative cursor-pointer" >
+                  <h4 className="flex text-primary-green items-center">
+                    <FaUser
+                      style={{
+                        marginBottom:"2px",
+                        marginLeft: "5px",
+                        fontSize: "15px",
+                       
+                      }}
+                    />
+                    {toPersianNumber(phoneNumber)}
+                    <FaChevronDown
+                      style={{
+                       
+                        marginRight: "5px",
+                        fontSize: "15px",
+                      }}
+                    />
+                  </h4>
+                <Dropdown show={showDropdown} phone={phoneNumber} />
+                </div>
+              </>
+            ) : (
+              <div
+                onClick={() => setShowModal(true)}
+                className="hidden md:flex items-center border border-primary-green rounded-lg p-2 cursor-pointer"
+              >
+                <Image
+                  src="/images/svgs/profile.svg"
+                  width={20}
+                  height={20}
+                  alt="user"
+                ></Image>
+                <span className="mr-1 text-primary-green text-md">
+                  ورود | ثبت نام
+                </span>
+              </div>
+            )}
             <div onClick={() => setShowMenu(!showMenu)} className="md:hidden">
               <Image
                 src="/images/svgs/menu.svg"

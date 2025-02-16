@@ -11,7 +11,7 @@ function Dropdown({ show, phone }) {
   return (
     <div className="w-[151px] h-[114px] flex flex-col justify-around absolute top-10  md:w-[246px] md:-left-10 md:h-[151px] bg-white overflow-hidden rounded-lg">
       <div className="flex bg-gray-100 w-full h-1/3 items-center ">
-        <div className="flex mr-2  w-7 h-7  bg-gray-200 rounded-full items-center justify-center">
+        <div className="flex mr-1  w-7 h-7  bg-gray-200 rounded-full items-center justify-center">
           <FaUser
             style={{
               fontSize: "12px",

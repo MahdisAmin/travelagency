@@ -3,6 +3,7 @@ import { PiSignOutLight } from "react-icons/pi";
 import { CiUser } from "react-icons/ci";
 import Link from "next/link";
 import { toPersianNumber } from "@/utils/extras";
+import Image from "next/image";
 
 function Dropdown({ show, phone }) {
   if (!show) return;
@@ -25,13 +26,12 @@ function Dropdown({ show, phone }) {
       </div>
       <div className="flex h-1/3 items-center mr-2 ">
         <div>
-          <CiUser
-            style={{
-              fontSize: "20px",
-              color: "#696969",
-              marginBottom: "-5px",
-            }}
-          />
+          <Image
+            src="/images/svgs/user.svg"
+            height={16}
+            width={16}
+            alt="logout"
+          ></Image>
         </div>
         <div className="mr-1 text-[12px] md:text-sm">
           <Link href="/">اطلاعات حساب کاربری</Link>
@@ -39,13 +39,12 @@ function Dropdown({ show, phone }) {
       </div>
       <div className="flex h-1/3 items-center mr-2">
         <div>
-          <PiSignOutLight
-            style={{
-              fontSize: "20px",
-              color: "#D40000",
-              marginBottom: "-5px",
-            }}
-          />
+          <Image
+            src="/images/svgs/logout.svg"
+            height={16}
+            width={16}
+            alt="logout"
+          ></Image>
         </div>
         <div className="mr-1 cursor-pointer">
           <h4 className="text-[12px] md:text-sm">خروج از حساب کاربری</h4>

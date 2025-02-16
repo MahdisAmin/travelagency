@@ -1,5 +1,6 @@
 "use client";
 import { howmanyDays, toPersianNumber } from "@/utils/extras";
+import moment from "jalali-moment";
 import Image from "next/image";
 
 import React from "react";
@@ -26,6 +27,13 @@ async function TourDetails({ params }) {
     insurance,
     id,
   } = tours;
+
+  const perStartDay = moment(startDate, "YYYY-MM-DD")
+    .locale("fa")
+    .format("jD jMMMM jYYYY");
+  const perEndtDay = moment(endDate, "YYYY-MM-DD")
+    .locale("fa")
+    .format("jD jMMMM jYYYY");
 
   const day = howmanyDays(startDate, endDate);
   const night = +day - 1;
@@ -110,7 +118,7 @@ async function TourDetails({ params }) {
                 <p className="mr-1 text-[#444444] ">تاریخ رفت</p>
               </div>
               <p className="text-center font-semibold mt-3 text-sm">
-                {startDate}
+                {perStartDay}
               </p>
             </div>
             <div className="hidden md:block  md:border-r md:border-r-gray-200">
@@ -123,7 +131,7 @@ async function TourDetails({ params }) {
                 <p className="mr-1 text-[#444444] "> تاریخ برگشت</p>
               </div>
               <p className="text-center font-semibold mt-3 text-sm">
-                {endDate}
+                {perEndtDay}
               </p>
             </div>
             <div className=" md:border-r md:border-r-gray-200">

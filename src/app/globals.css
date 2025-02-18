@@ -6,3 +6,20 @@
   font-family: "bakh";
   src: url("/fonts/YekanBakh-Regular.woff2");
 }
+.rmdp-day.rmdp-today span{
+  background-color: #28a746a1 !important;
+}
+span.sd{
+color :#28A745 !important
+}
+
+.rmdp-header-values  , .rmdp-week-day {
+  color: #28A745 !important ;
+}
+.rmdp-arrow {
+  border:solid #28A745 !important ;
+    border-width: 0 2px 2px 0 !important;
+}
+.rmdp-range{
+  background-color: #9de4aeb0 !important;
+}

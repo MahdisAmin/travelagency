@@ -2,8 +2,18 @@
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 
+import DatePicker from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+
+import "react-multi-date-picker/styles/layouts/mobile.css";
+import { useState } from "react";
 function Input() {
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
+
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => console.log(data);
   return (
     <div>
@@ -19,13 +29,14 @@ function Input() {
                 width={18}
                 height={18}
                 className="md:mr-4"
+                alt="location"
               ></Image>
-              <input
-                type="text"
-                placeholder="مبدا"
-                {...register("from")}
-                className="bg-transparent mr-2 outline-none"
-              />
+
+              <select className="bg-transparent w-full mr-2 outline-none">
+                <option>مبدا</option>
+                <option>تهران</option>
+                <option>سنندج</option>
+              </select>
             </div>
           </div>
           <div className=" col-span-6  md:col-span-3 border rounded-lg p-2 md:border-none  ">
@@ -35,13 +46,13 @@ function Input() {
                 width={18}
                 height={18}
                 className="md:mr-4"
+                alt="to"
               ></Image>
-              <input
-                type="text"
-                placeholder="مقصد"
-                {...register("from")}
-                className="bg-transparent mr-2 outline-none"
-              />
+              <select className="bg-transparent w-2/3 mr-2 outline-none">
+                <option className="text-gray-200">مقصد</option>
+                <option>تهران</option>
+                <option>سنندج</option>
+              </select>
             </div>
           </div>
           <div className=" col-span-12 md:col-span-3   border border-gray-200  rounded-lg p-2  md:border-none ">
@@ -51,18 +62,29 @@ function Input() {
                 width={18}
                 height={18}
                 className="md:mr-4"
+                alt="date"
               ></Image>
-              <input
+              {/* <input
                 type="text"
                 placeholder="تاریخ"
                 {...register("from")}
                 className="mr-2 outline-none "
+              /> */}
+              <DatePicker
+                value={selectedDay}
+                onChange={setSelectedDay}
+                locale={persian_fa}
+                calendar={persian}
+               
+                range
+                placeholder="تاریخ"
+                className="border-none"
               />
             </div>
           </div>
 
           <div className="  col-span-12 md:col-span-3 bg-primary-green rounded-lg p-1 text-center text-white ">
-            <button type="submit">جستجو</button>
+            <button type="submit" >جستجو</button>
           </div>
         </form>
       </div>

@@ -8,6 +8,7 @@ import { useGetUserData } from "@/config/services/query";
 import { FaChevronDown, FaUser } from "react-icons/fa";
 import Dropdown from "../elements/DropDown";
 import { toPersianNumber } from "@/utils/extras";
+import Link from "next/link";
 
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -32,10 +33,18 @@ function Layout({ children }) {
                 alt="logo"
               ></Image>
               <ul className="flex items-center  mr-9">
-                <li className="m-4">صفحه اصلی</li>
-                <li className="m-4">خدمات گردشگری</li>
-                <li className="m-4">درباره ما</li>
-                <li className="m-4">تماس با ما</li>
+                <Link href="/" className="m-4">
+                  صفحه اصلی
+                </Link>
+                <Link href="/" className="m-4">
+                  خدمات گردشگری
+                </Link>
+                <Link href="/" className="m-4">
+                  درباره ما
+                </Link>
+                <Link href="/" className="m-4">
+                  تماس با ما
+                </Link>
               </ul>
             </div>
             <Auth setShowModal={setShowModal} showModal={showModal} />

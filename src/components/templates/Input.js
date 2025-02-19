@@ -78,7 +78,13 @@ function Input() {
                
                 range
                 placeholder="تاریخ"
-                className="border-none"
+                style={{
+                  border: "none",
+                  width: "100%",
+                  outline: "none",
+                  boxShadow:'none'
+                }}
+               
               />
             </div>
           </div>

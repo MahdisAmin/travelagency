@@ -32,7 +32,10 @@ function Input() {
                 alt="location"
               ></Image>
 
-              <select className="bg-transparent w-full mr-2 outline-none">
+              <select
+                className="bg-transparent w-full mr-2 outline-none"
+                {...register("originId")}
+              >
                 <option>مبدا</option>
                 <option>تهران</option>
                 <option>سنندج</option>
@@ -48,7 +51,7 @@ function Input() {
                 className="md:mr-4"
                 alt="to"
               ></Image>
-              <select className="bg-transparent w-2/3 mr-2 outline-none">
+              <select className="bg-transparent w-2/3 mr-2 outline-none" {...register("destinationId")}>
                 <option className="text-gray-200">مقصد</option>
                 <option>تهران</option>
                 <option>سنندج</option>
@@ -75,22 +78,20 @@ function Input() {
                 onChange={setSelectedDay}
                 locale={persian_fa}
                 calendar={persian}
-               
                 range
                 placeholder="تاریخ"
                 style={{
                   border: "none",
                   width: "100%",
                   outline: "none",
-                  boxShadow:'none'
+                  boxShadow: "none",
                 }}
-               
               />
             </div>
           </div>
 
           <div className="  col-span-12 md:col-span-3 bg-primary-green rounded-lg p-1 text-center text-white ">
-            <button type="submit" >جستجو</button>
+            <button type="submit">جستجو</button>
           </div>
         </form>
       </div>

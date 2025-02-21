@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Menu from "../elements/Menu";
 import Footer from "./Footer";
 import Auth from "../modal/Auth";
@@ -9,7 +9,7 @@ import { FaChevronDown, FaUser } from "react-icons/fa";
 import Dropdown from "../elements/DropDown";
 import { toPersianNumber } from "@/utils/extras";
 import Link from "next/link";
-
+export const ModalContext = createContext();
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +21,7 @@ function Layout({ children }) {
   };
 
   return (
-    <>
+    <ModalContext.Provider value={{ setShowModal }}>
       <header>
         <div className=" h-20 container mx-auto flex justify-between items-center">
           <div className="container mx-auto flex justify-between items-center h-full p-10">
@@ -116,7 +116,7 @@ function Layout({ children }) {
 
       {children}
       <Footer />
-    </>
+    </ModalContext.Provider>
   );
 }
 

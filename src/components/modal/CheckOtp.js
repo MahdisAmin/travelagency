@@ -28,7 +28,7 @@ function CheckOtp({ mobile, setStep, setShowModal }) {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full bg-[#00000080] fixed top-0 left-0 z-[10000]">
+    <div className="flex items-center justify-center w-full h-full bg-[#00000080] fixed top-0 left-0 z-[9999]">
       <motion.div
         className="w-[352px] h-[365px] rounded-lg bg-white p-5 relative md:w-[561px]"
         initial={{ opacity: 0, y: -50 }}

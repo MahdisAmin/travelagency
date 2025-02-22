@@ -9,6 +9,7 @@ import { FaChevronDown, FaUser } from "react-icons/fa";
 import Dropdown from "../elements/DropDown";
 import { toPersianNumber } from "@/utils/extras";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 export const ModalContext = createContext();
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -116,6 +117,7 @@ function Layout({ children }) {
 
       {children}
       <Footer />
+      <Toaster position="top-left" reverseOrder={true} />
     </ModalContext.Provider>
   );
 }

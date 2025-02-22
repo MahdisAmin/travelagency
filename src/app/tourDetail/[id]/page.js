@@ -1,4 +1,5 @@
-import ReserveBtn from "@/components/elements/reseveBtn";
+
+import ReserveBtn from "@/components/elements/ReseveBtn";
 import { howmanyDays, toPersianNumber } from "@/utils/extras";
 import moment from "jalali-moment";
 import Image from "next/image";
@@ -52,7 +53,7 @@ async function TourDetails({ params }) {
           </div>
           <div>
             <div className=" flex justify-between items-center mx-20 md:flex-col md:justify-start  md:mx-1 md:mt-7 md:items-start ">
-              <h1 className="text-[20px] font-bold ">تور {title}</h1>
+              <h1 className="text-[20px] font-bold "> {title}</h1>
               <p className="tracking-widest md:mt-5">
                 {toPersianNumber(day)} روز و {toPersianNumber(night)} شب
               </p>

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
+import { Controller, set, useForm } from "react-hook-form";
 
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
@@ -9,10 +9,10 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import { useState } from "react";
 function Input() {
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(new Date());
   const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
 
   const onSubmit = (data) => console.log(data);
   return (
@@ -37,8 +37,8 @@ function Input() {
                 {...register("originId")}
               >
                 <option>مبدا</option>
-                <option>تهران</option>
-                <option>سنندج</option>
+                <option value={1}>تهران</option>
+                <option value={2}>سنندج</option>
               </select>
             </div>
           </div>
@@ -51,10 +51,13 @@ function Input() {
                 className="md:mr-4"
                 alt="to"
               ></Image>
-              <select className="bg-transparent w-2/3 mr-2 outline-none" {...register("destinationId")}>
+              <select
+                className="bg-transparent w-2/3 mr-2 outline-none"
+                {...register("destinationId")}
+              >
                 <option className="text-gray-200">مقصد</option>
-                <option>تهران</option>
-                <option>سنندج</option>
+                <option value={1}>تهران</option>
+                <option value={2}>سنندج</option>
               </select>
             </div>
           </div>
@@ -67,31 +70,35 @@ function Input() {
                 className="md:mr-4"
                 alt="date"
               ></Image>
-              {/* <input
-                type="text"
-                placeholder="تاریخ"
-                {...register("from")}
-                className="mr-2 outline-none "
-              /> */}
-              <DatePicker
-                value={selectedDay}
-                onChange={setSelectedDay}
-                locale={persian_fa}
-                calendar={persian}
-                range
-                placeholder="تاریخ"
-                style={{
-                  border: "none",
-                  width: "100%",
-                  outline: "none",
-                  boxShadow: "none",
-                }}
+              <Controller
+                name="date"
+                control={control}
+                render={({ field: { onChange } }) => (
+                  <DatePicker
+                    onChange={(e) =>
+                      onChange({
+                        startDate: setSelectedRange(e.from),
+                        endDate: setSelectedRange(e.to),
+                      })
+                    }
+                    locale={persian_fa}
+                    calendar={persian}
+                    range
+                    placeholder="تاریخ"
+                    style={{
+                      border: "none",
+                      width: "100%",
+                      outline: "none",
+                      boxShadow: "none",
+                    }}
+                  />
+                )}
               />
             </div>
           </div>
 
-          <div className="  col-span-12 md:col-span-3 bg-primary-green rounded-lg p-1 text-center text-white ">
-            <button type="submit">جستجو</button>
+          <div className="  col-span-12 md:col-span-3 bg-primary-green rounded-lg p-1 text-center text-white flex justify-center items-center cursor-pointer">
+            <input type="submit" value="جستجو" className="cursor-pointer" />
           </div>
         </form>
       </div>

@@ -2,16 +2,13 @@
 import Image from "next/image";
 import { Controller, set, useForm } from "react-hook-form";
 
-import DatePicker from "react-multi-date-picker";
+import DatePicker, { DateObject } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
-import { useState } from "react";
-function Input() {
-  const [selectedDay, setSelectedDay] = useState(new Date());
-  const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
 
+function Input() {
   const { register, handleSubmit, control } = useForm();
 
   const onSubmit = (data) => console.log(data);
@@ -75,15 +72,21 @@ function Input() {
                 control={control}
                 render={({ field: { onChange } }) => (
                   <DatePicker
-                    onChange={(e) =>
-                      onChange({
-                        startDate: setSelectedRange(e.from),
-                        endDate: setSelectedRange(e.to),
-                      })
-                    }
+                    onChange={(dates) => {
+                      if (dates && dates.length === 2) {
+                        // تبدیل تاریخ‌های شمسی به میلادی
+                        const startDate = new DateObject(dates[0])
+                          .toDate()
+                          .toISOString(); // تبدیل به فرمت ISO
+                        const endDate = new DateObject(dates[1])
+                          .toDate()
+                          .toISOString(); // تبدیل به فرمت ISO
+                        onChange({ startDate, endDate }); // ارسال داده‌ها به react-hook-form
+                      }
+                    }}
+                    range
                     locale={persian_fa}
                     calendar={persian}
-                    range
                     placeholder="تاریخ"
                     style={{
                       border: "none",

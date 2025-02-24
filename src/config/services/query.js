@@ -7,3 +7,9 @@ export const useGetUserData = () => {
   const queryKey = ["user-data"];
   return useQuery({ queryFn, queryKey });
 };
+export const useGetTours = (query) => {
+  const url = "/tour?" + query
+  const queryFn = () => api.get(url);
+  const queryKey = ["tour" , query];
+  return useQuery({ queryFn, queryKey , enabled:false });
+};

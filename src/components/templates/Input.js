@@ -7,11 +7,34 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
+import { useGetTours } from "@/config/services/query";
+import { useEffect, useState } from "react";
 
 function Input() {
+  const [query, setQuery] = useState("");
+  const { data, isPending, refetch } = useGetTours(query);
   const { register, handleSubmit, control } = useForm();
+  console.log(data);
+  useEffect(() => {
+    refetch();
+  }, [query]);
+  const onSubmit = (form) => {
+    let queryString = "";
+    for (const key in form) {
+      if (key === "date" && form.date) {
+        if (form.date.startDate && form.date.endDate) {
+          queryString += `startDate=${form?.date?.startDate}&`;
+        }
+        if (form.date.endDate) {
+          queryString += `endDate=${form?.date?.endDate}&`;
+        }
+      } else if (form[key]) {
+        queryString += key + "=" + form[key] + "&";
+      }
+    }
+    setQuery(queryString);
+  };
 
-  const onSubmit = (data) => console.log(data);
   return (
     <div>
       <div className="container p-10 mx-auto ">
@@ -75,12 +98,9 @@ function Input() {
                     onChange={(dates) => {
                       if (dates && dates.length === 2) {
                         // تبدیل تاریخ‌های شمسی به میلادی
-                        const startDate = new DateObject(dates[0])
-                          .toDate()
-                          .toISOString(); // تبدیل به فرمت ISO
-                        const endDate = new DateObject(dates[1])
-                          .toDate()
-                          .toISOString(); // تبدیل به فرمت ISO
+                        const startDate = new Date(dates[0]).toISOString(); // تبدیل به فرمت ISO
+                        const endDate = new Date(dates[1]).toISOString(); // تبدیل به فرمت ISO
+                        console.log(startDate, endDate);
                         onChange({ startDate, endDate }); // ارسال داده‌ها به react-hook-form
                       }
                     }}

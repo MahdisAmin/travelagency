@@ -13,10 +13,6 @@ const flattenObject = (obj, delimiter = ".", prefix = "") => {
 
   return flattObject;
 };
-export const DateToIso = (date) => {
-  if (!date) return null;
-  const gregorianDate = date.toDate(); 
-  return gregorianDate.toISOString(); 
-};
+const DateToIso = (date) => new Date(date).toISOString();
 
 export { flattenObject, DateToIso };

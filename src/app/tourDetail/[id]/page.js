@@ -1,9 +1,7 @@
-
 import ReserveBtn from "@/components/elements/ReseveBtn";
 import { howmanyDays, toPersianNumber } from "@/utils/extras";
 import moment from "jalali-moment";
 import Image from "next/image";
-
 
 import React from "react";
 
@@ -188,7 +186,7 @@ async function TourDetails({ params }) {
             </div>
           </div>
           <div className="flex justify-between items-center mx-16 my-7 md:-mt-16 md:mr-[370px] md:flex-row-reverse md:mx-0">
-             <ReserveBtn/>
+            <ReserveBtn title={title} price={price} day={day} night={night} />
             <p className="text-2xl text-blue-500">
               {toPersianNumber(price)}{" "}
               <span className="text-sm text-primary-gray mr-3">تومان</span>

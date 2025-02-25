@@ -6,9 +6,12 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
+import { toPersianNumber } from "@/utils/extras";
 
 function Booking({ searchParams }) {
   const { title, price, day, night } = searchParams;
+  console.log(searchParams);
+  
 
   return (
     <div className="container m-auto">
@@ -52,10 +55,8 @@ function Booking({ searchParams }) {
                 <DatePicker
                   placeholder="تاریخ تولد"
                   locale={persian_fa}
-                  
                   calendar={persian}
                   style={{
-                    
                     border: "none",
                     width: "100%",
                     outline: "none",
@@ -67,16 +68,23 @@ function Booking({ searchParams }) {
             </div>
           </form>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex flex-col items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center w-full border border-gray-300 rounded-xl p-5 mt-7">
+          <div className="flex  items-center justify-between border-b border-dashed border-gray-500 w-full">
             <h1 className="text-2xl font-bold">{title}</h1>
-            <p className="text-sm text-gray-400">تعداد شب ها: {night}</p>
-            <p className="text-sm text-gray-400">تعداد روز ها: {day}</p>
+            <p className="text-sm text-gray-700 mr-7">
+              {" "}
+              {toPersianNumber(day)}
+              روز و {toPersianNumber(night)} شب
+            </p>
           </div>
-          <div className="flex flex-col items-center">
-            <h1 className="text-2xl font-bold">{price} تومان</h1>
-            <p className="text-sm text-gray-400">هزینه کل</p>
+          <div className="flex  items-center justify-between w-full mt-3">
+            <p className="text-lg ">قیمت نهایی</p>
+            <h1 className="text-xl font-bold  text-blue-500 mr-7">
+              {toPersianNumber(price)}
+              <span className="text-sm text-gray-800"> تومان</span>
+            </h1>
           </div>
+          <butt className="w-full rounded-lg bg-primary-green text-white text-center p-2 mt-3 cursor-pointer">ثبت و خرید نهایی</butt>
         </div>
       </div>
     </div>

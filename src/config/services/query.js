@@ -8,9 +8,7 @@ export const useGetUserData = () => {
   const queryKey = ["user-data"];
   return useQuery({ queryFn, queryKey });
 };
-export const useGetTours = (query) => {
-  console.log(query);
-  
+export const useGetTours = (query) => { 
  const url = "tour?" + QueryString.stringify(query);
   const queryFn = () => api.get(url);
   const queryKey = ["tour" , query];

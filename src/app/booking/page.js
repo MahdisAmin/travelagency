@@ -14,7 +14,6 @@ import { getCookie } from "@/utils/cookie";
 
 function Booking({ searchParams }) {
   const { title, price, day, night } = searchParams;
-  const { data } = useGetUserData();
   const router = useRouter();
 
   useEffect(() => {

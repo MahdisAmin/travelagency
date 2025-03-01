@@ -28,7 +28,7 @@ function Booking({ searchParams }) {
       });
       router.replace("/");
     }
-  }, []);
+  },[]);
 
   return (
     <div className="  md:bg-gray-200 ">

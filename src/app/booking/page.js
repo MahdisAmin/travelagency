@@ -1,16 +1,33 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import { toPersianNumber } from "@/utils/extras";
+import { useGetUserData } from "@/config/services/query";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 function Booking({ searchParams }) {
   const { title, price, day, night } = searchParams;
-  console.log(searchParams);
+    const { data } = useGetUserData();
+    const router =useRouter()
+  
+ 
+  useEffect(() => {
+    if (!data?.data) {
+         toast("ابتدا وارد شوید.", {
+        style: {
+          zIndex: 1000000,
+          color: "#28A745",
+        },
+         });
+      router.replace("/")
+    }
+  },[])
 
   return (
     <div className="  md:bg-gray-200 ">

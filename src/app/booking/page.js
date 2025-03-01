@@ -10,24 +10,25 @@ import { toPersianNumber } from "@/utils/extras";
 import { useGetUserData } from "@/config/services/query";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { getCookie } from "@/utils/cookie";
 
 function Booking({ searchParams }) {
   const { title, price, day, night } = searchParams;
-    const { data } = useGetUserData();
-    const router =useRouter()
-  
- 
+  const { data } = useGetUserData();
+  const router = useRouter();
+
   useEffect(() => {
-    if (!data?.data) {
-         toast("ابتدا وارد شوید.", {
+    const token = getCookie("accessToken");
+    if (!token) {
+      toast("ابتدا وارد شوید.", {
         style: {
           zIndex: 1000000,
           color: "#28A745",
         },
-         });
-      router.replace("/")
+      });
+      router.replace("/");
     }
-  },[])
+  }, []);
 
   return (
     <div className="  md:bg-gray-200 ">
@@ -43,11 +44,11 @@ function Booking({ searchParams }) {
                 <input
                   type="text"
                   placeholder="نام و نام خانوادگی"
-                  className="placeholder-black"
+                  className="placeholder-black outline-none"
                 />
               </div>
               <div className="col-span-12 md:col-span-4 border rounded-lg p-2  border-gray-600">
-                <select className="outline-none w-full">
+                <select className="outline-none w-full outline-none">
                   <option className="text-gray-400">جنسیت</option>
                   <option>مرد</option>
                   <option>زن</option>
@@ -57,7 +58,7 @@ function Booking({ searchParams }) {
                 <input
                   type="text"
                   placeholder="کد ملی"
-                  className="placeholder-black"
+                  className="placeholder-black outline-none"
                 />
               </div>
               <div className="col-span-12 md:col-span-4 border rounded-lg p-2  border-gray-600">
@@ -101,9 +102,9 @@ function Booking({ searchParams }) {
                 <span className="text-sm text-gray-800"> تومان</span>
               </h1>
             </div>
-            <butt className="w-full rounded-lg bg-primary-green text-white text-center p-2 mt-3 cursor-pointer">
+            <button className="w-full rounded-lg bg-primary-green text-white text-center p-2 mt-3 cursor-pointer">
               ثبت و خرید نهایی
-            </butt>
+            </button>
           </div>
         </div>
       </div>

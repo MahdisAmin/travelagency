@@ -7,22 +7,29 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
-import { useGetTours } from "@/config/services/query";
+
 import { useEffect, useState } from "react";
 import { DateToIso, flattenObject } from "@/utils/helper";
+import useQuery from "@/config/hooks/query";
+import QueryString from "qs";
+import { useRouter } from "next/navigation";
 
 function Input() {
-  const [query, setQuery] = useState("");
-  const { data, isPending, refetch } = useGetTours(query);
-  const { register, handleSubmit, control } = useForm();
+const router = useRouter()
+  const { register, handleSubmit, control, reset } = useForm();
+  const {getQuery} = useQuery();
 
-  useEffect(() => {
-    refetch();
-  }, [query]);
+   useEffect(() => {
+     const originId = getQuery("originId");
+     const destinationId = getQuery("destinationId");
+     if (originId && destinationId) reset({ originId, destinationId });
+     console.log({ originId, destinationId });
+   }, []);
 
-  const onSubmit = (form) => {
-    setQuery(flattenObject(form));
-  };
+   const onSubmit = (form) => {
+     const query = QueryString.stringify(flattenObject(form));
+     router.push(`/?${query}`);
+   };
 
   return (
     <div>

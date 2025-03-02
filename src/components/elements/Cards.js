@@ -1,3 +1,4 @@
+import { toPersianNumber } from "@/utils/extras";
 import Link from "next/link";
 import React from "react";
 
@@ -26,7 +27,8 @@ function Cards({ tourList }) {
                 رزرو
               </Link>
               <p className="text-blue-500">
-                {price} <span className="text-primary-gray mr-1">تومان</span>
+                {toPersianNumber(price)}{" "}
+                <span className="text-primary-gray mr-1">تومان</span>
               </p>
             </div>
           </div>

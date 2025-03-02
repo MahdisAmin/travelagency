@@ -15,21 +15,24 @@ import QueryString from "qs";
 import { useRouter } from "next/navigation";
 
 function Input() {
-const router = useRouter()
+  const router = useRouter();
   const { register, handleSubmit, control, reset } = useForm();
-  const {getQuery} = useQuery();
+  const { getQuery } = useQuery();
 
-   useEffect(() => {
-     const originId = getQuery("originId");
-     const destinationId = getQuery("destinationId");
-     if (originId && destinationId) reset({ originId, destinationId });
-     console.log({ originId, destinationId });
-   }, []);
+  useEffect(() => {
+    const originId = getQuery("originId");
+    const destinationId = getQuery("destinationId");
+    const startDate = getQuery("startDate");
+    const endDate = getQuery("endDate");
+    console.log({ originId, destinationId, startDate, endDate });
+    if (originId && destinationId && startDate && endDate)
+      reset({ originId, destinationId, startDate, endDate });
+  }, []);
 
-   const onSubmit = (form) => {
-     const query = QueryString.stringify(flattenObject(form));
-     router.push(`/?${query}`);
-   };
+  const onSubmit = (form) => {
+    const query = QueryString.stringify(flattenObject(form));
+    router.push(`/?${query}`);
+  };
 
   return (
     <div>
@@ -52,7 +55,7 @@ const router = useRouter()
                 className="bg-transparent w-full mr-2 outline-none"
                 {...register("originId")}
               >
-                <option>مبدا</option>
+                <option value="">مبدا</option>
                 <option value={1}>تهران</option>
                 <option value={2}>سنندج</option>
               </select>
@@ -71,7 +74,7 @@ const router = useRouter()
                 className="bg-transparent w-2/3 mr-2 outline-none"
                 {...register("destinationId")}
               >
-                <option className="text-gray-200">مقصد</option>
+                <option className="text-gray-200" value="">مقصد</option>
                 <option value={1}>تهران</option>
                 <option value={2}>سنندج</option>
               </select>

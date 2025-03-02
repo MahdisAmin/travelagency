@@ -47,7 +47,7 @@ function Booking({ searchParams }) {
                 />
               </div>
               <div className="col-span-12 md:col-span-4 border rounded-lg p-2  border-gray-600">
-                <select className="outline-none w-full outline-none">
+                <select className="outline-none w-full">
                   <option className="text-gray-400">جنسیت</option>
                   <option>مرد</option>
                   <option>زن</option>

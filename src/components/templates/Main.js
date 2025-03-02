@@ -5,7 +5,7 @@ import InfoBanner from "../elements/InfoBanner";
 import WhyTorino from "./WhyTorino";
 import Image from "next/image";
 
-function Main() {
+function Main({tours}) {
   return (
     <div>
       <div>
@@ -25,7 +25,7 @@ function Main() {
         </span>
       </div>
       <Input />
-      <Tours />
+      <Tours tours={tours} />
       <InfoBanner />
       <WhyTorino />
     </div>

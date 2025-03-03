@@ -13,18 +13,28 @@ import { DateToIso, flattenObject } from "@/utils/helper";
 import useQuery from "@/config/hooks/query";
 import QueryString from "qs";
 import { useRouter } from "next/navigation";
+import { useGetTours } from "@/config/services/query";
 
 function Input() {
   const router = useRouter();
   const { register, handleSubmit, control, reset } = useForm();
   const { getQuery } = useQuery();
 
+  const { data } = useGetTours();
+  const tour = data?.data;
+  const uniqueOrigins = tour
+    ? [...new Map(tour.map((t) => [t.origin.id, t.origin])).values()]
+    : [];
+  const uniqueDestination = tour
+    ? [...new Map(tour.map((t) => [t.destination.id, t.destination])).values()]
+    : [];
+  console.log(uniqueOrigins);
+
   useEffect(() => {
     const originId = getQuery("originId");
     const destinationId = getQuery("destinationId");
     const startDate = getQuery("startDate");
     const endDate = getQuery("endDate");
-    console.log({ originId, destinationId, startDate, endDate });
     if (originId && destinationId && startDate && endDate)
       reset({ originId, destinationId, startDate, endDate });
   }, []);
@@ -52,12 +62,15 @@ function Input() {
               ></Image>
 
               <select
-                className="bg-transparent w-full mr-2 outline-none"
+                className="bg-transparent w-full mr-2 outline-none cursor-pointer"
                 {...register("originId")}
               >
                 <option value="">مبدا</option>
-                <option value={1}>تهران</option>
-                <option value={2}>سنندج</option>
+                {uniqueOrigins.map((origin) => (
+                  <option key={origin.id} value={origin.id}>
+                    {origin.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -71,12 +84,17 @@ function Input() {
                 alt="to"
               ></Image>
               <select
-                className="bg-transparent w-2/3 mr-2 outline-none"
+                className="bg-transparent w-2/3 mr-2 outline-none cursor-pointer"
                 {...register("destinationId")}
               >
-                <option className="text-gray-200" value="">مقصد</option>
-                <option value={1}>تهران</option>
-                <option value={2}>سنندج</option>
+                <option className="text-gray-200" value="">
+                  مقصد
+                </option>
+                {uniqueDestination.map((destination) => (
+                  <option key={destination.id} value={destination.id}>
+                    {destination.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

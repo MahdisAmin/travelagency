@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import { toPersianNumber } from "@/utils/extras";
-import { useGetUserData } from "@/config/services/query";
+
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { getCookie } from "@/utils/cookie";
@@ -15,10 +15,13 @@ import { getCookie } from "@/utils/cookie";
 function Booking({ searchParams }) {
   const { title, price, day, night } = searchParams;
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const token = getCookie("accessToken");
-    if (!token) {
+    const refresh = getCookie("refreshToken");
+  
+    if (!token && !refresh) {
       toast("ابتدا وارد شوید.", {
         style: {
           zIndex: 1000000,
@@ -26,9 +29,17 @@ function Booking({ searchParams }) {
         },
       });
       router.replace("/");
+    } else {
+      setIsLoading(false)
     }
-  },[]);
-
+  }, []);
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+      </div>
+    );
+  }
   return (
     <div className="  md:bg-gray-200 ">
       <div className="container mx-auto">

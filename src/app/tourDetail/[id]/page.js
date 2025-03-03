@@ -186,7 +186,7 @@ async function TourDetails({ params }) {
             </div>
           </div>
           <div className="flex justify-between items-center mx-16 my-7 md:-mt-16 md:mr-[370px] md:flex-row-reverse md:mx-0">
-            <ReserveBtn title={title} price={price} day={day} night={night} />
+            <ReserveBtn  id={id} />
             <p className="text-2xl text-blue-500">
               {toPersianNumber(price)}{" "}
               <span className="text-sm text-primary-gray mr-3">تومان</span>

@@ -7,11 +7,14 @@ import { ModalContext } from "../layout/Layout";
 import toast from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
+import { useAddToBasket } from "@/config/services/mutations";
 
-function ReserveBtn({ title, price , day , night }) {
+function ReserveBtn({ id }) {
   const { setShowModal } = useContext(ModalContext);
   const router = useRouter();
   const { data } = useGetUserData();
+
+  const { mutate, isPending } = useAddToBasket();
 
   const reservHandler = () => {
     if (!data?.data) {
@@ -23,7 +26,22 @@ function ReserveBtn({ title, price , day , night }) {
       });
       setShowModal(true);
     } else {
-     return router.push(`/booking?title=${title}&price=${price}&day=${day}&night=${night}`);
+      if (isPending) return;
+      mutate(id, {
+        onSuccess: (data) => {
+       
+          toast.success("تور با موفقیت به سبد خرید شما اضافه شد");
+          router.push(
+            `/booking`
+          );
+        },
+        onError: (error) => {
+          console.log(error);
+
+          toast.error("مشکلی پیش آمد ");
+        },
+      });
+      // return
     }
   };
   return (

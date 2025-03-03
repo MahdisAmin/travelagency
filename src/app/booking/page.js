@@ -6,37 +6,50 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
-import { toPersianNumber } from "@/utils/extras";
+import { howmanyDays, toPersianNumber } from "@/utils/extras";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { getCookie } from "@/utils/cookie";
+import { useGetBasket } from "@/config/services/query";
+import Link from "next/link";
 
-function Booking({ searchParams }) {
-  const { title, price, day, night } = searchParams;
+function Booking() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const token = getCookie("accessToken");
-    const refresh = getCookie("refreshToken");
-  
-    if (!token && !refresh) {
-      toast("ابتدا وارد شوید.", {
-        style: {
-          zIndex: 1000000,
-          color: "#28A745",
-        },
-      });
-      router.replace("/");
-    } else {
-      setIsLoading(false)
-    }
-  }, []);
-  if (isLoading) {
+  const { data } = useGetBasket();
+  console.log(data?.data.price);
+  const day = howmanyDays(data?.data.startDate, data?.data.endDate);
+  const night = +day - 1;
+  // useEffect(() => {
+  //   const token = getCookie("accessToken");
+  //   const refresh = getCookie("refreshToken");
+
+  //   if (!token && !refresh) {
+  //     toast("ابتدا وارد شوید.", {
+  //       style: {
+  //         zIndex: 1000000,
+  //         color: "#28A745",
+  //       },
+  //     });
+  //     router.replace("/");
+  //   } else {
+  //     setIsLoading(false);
+  //   }
+  // }, []);
+  // if (isLoading) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen">
+  //       <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+  //     </div>
+  //   );
+  // }
+  if (!data) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+      <div className="container mx-auto p-7 flex flex-col items-center justify-center md:bg-gray-100 rounded-xl my-9">
+        <p className="font-bold mb-3 text-xl">توری برای شما رزرو نشده !</p>
+        <Link href="/" className="bg-primary-green px-9 py-2 rounded-lg font-bold text-white"> بریم خرید</Link>
       </div>
     );
   }
@@ -98,7 +111,7 @@ function Booking({ searchParams }) {
           </div>
           <div className=" flex flex-col justify-between items-center w-full border border-gray-300 rounded-xl p-5 mt-7 md:w-[300px] bg-white md:mt-0">
             <div className="flex  items-center justify-between border-b border-dashed border-gray-500 w-full">
-              <h1 className="text-2xl font-bold">{title}</h1>
+              <h1 className="text-2xl font-bold">{data?.data.title}</h1>
               <p className="text-sm text-gray-700 mr-7">
                 {" "}
                 {toPersianNumber(day)}
@@ -108,7 +121,7 @@ function Booking({ searchParams }) {
             <div className="flex  items-center justify-between w-full mt-3">
               <p className="text-lg ">قیمت نهایی</p>
               <h1 className="text-xl font-bold  text-blue-500 mr-7">
-                {toPersianNumber(price)}
+                {toPersianNumber(+data?.data.price)}
                 <span className="text-sm text-gray-800"> تومان</span>
               </h1>
             </div>

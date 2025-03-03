@@ -15,3 +15,10 @@ export const useGetTours = () => {
 
   return useQuery({ queryKey, queryFn });
 };
+
+export const useGetBasket = () => {
+  const queryKey = ["basket"];
+  const queryFn = () => api.get("basket");
+
+  return useQuery({ queryKey, queryFn });
+};

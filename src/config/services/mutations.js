@@ -20,4 +20,9 @@ const checkOtp = () => {
 
   return useMutation({ mutationFn, onSuccess });
 };
-export { sendOtp ,checkOtp };
+
+const addToBasket = () => {
+  const mutationFn = (id) => api.post(`basket/${id}`);
+  return useMutation({ mutationFn });
+};
+export { sendOtp, checkOtp, addToBasket };

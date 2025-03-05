@@ -32,18 +32,21 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
         <h3 className="font-bold text-lg mr-2">{formData.title}</h3>
       </div>
 
-      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600">
+      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <input
           type="text"
           placeholder={formData.fullNamePlaceholder}
           className="placeholder-black outline-none"
           {...register("fullName", { required: true })}
         />
+        {errors.fullName && (
+          <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
+            {errors.fullName.message}
+          </p>
+        )}
       </div>
-      {errors.fullName && (
-        <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
-      )}
-      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600">
+
+      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <select
           className="outline-none w-full"
           {...register("gender", { required: true })}
@@ -52,9 +55,14 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
           <option value="male">{formData.genderOptions.male}</option>
           <option value="female">{formData.genderOptions.female}</option>
         </select>
+        {errors.gender && (
+          <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
+            {errors.gender.message}
+          </p>
+        )}
       </div>
 
-      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600">
+      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <input
           type="text"
           placeholder={formData.nationalCodePlaceholder}
@@ -64,13 +72,14 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
             validate: validateNationalCode,
           })}
         />
+        {errors.nationalCode && (
+          <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
+            {errors.nationalCode.message}
+          </p>
+        )}
       </div>
-      {errors.nationalCode && (
-        <p className="text-red-500 text-sm mt-1">
-          {errors.nationalCode.message}
-        </p>
-      )}
-      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600">
+
+      <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <div className="flex items-center w-full">
           <Image
             src="/images/svgs/calendar.svg"
@@ -103,7 +112,7 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
             )}
           />
           {errors.birthDate && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
               {errors.birthDate.message}
             </p>
           )}

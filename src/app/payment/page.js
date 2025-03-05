@@ -14,7 +14,7 @@ function Payment() {
     return (
       <div className="flex flex-col  justify-center items-center m-10  p-5 rounded-2xl ">
         <p className="font-bold text-lg mt-4">پرداخت با موفقیت انجام شد!</p>
-        <Link href="/" className="bg-primary-green text-white p-3 rounded-lg mt-4">برو به پروفایل</Link>
+        <Link href="/profile" className="bg-primary-green text-white p-3 rounded-lg mt-4">برو به پروفایل</Link>
       </div>
     );
 

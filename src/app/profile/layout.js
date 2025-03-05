@@ -5,9 +5,9 @@ import React from "react";
 function layout({children}) {
   return (
     <div>
-      <div className="p-10 grid grid-cols-4 gap-6 font-bold">
-        <ul className="border border-slate-200 divide-y  rounded-md col-span-1">
-          <li className="p-2 flex">
+      <div className="grid-cols-12 p-10 grid md:grid-cols-4 gap-6 font-bold">
+        <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col">
+          <li className="p-2 flex ">
             <Image
               src="/images/svgs/peo.svg"
               width={16}
@@ -41,7 +41,7 @@ function layout({children}) {
             </Link>
           </li>
         </ul>
-        <main className="bg-red-100 col-span-3">{children}</main>
+        <main className=" col-span-12 md:col-span-3">{children}</main>
       </div>
     </div>
   );

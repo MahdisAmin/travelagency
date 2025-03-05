@@ -49,7 +49,7 @@ function Booking() {
         {
           onSuccess: () => {
             toast.success("رزرو شما با موفقیت ثبت شد");
-            router.push("/");
+            router.push("/payment?status=success");
           },
           onError: () => {
             toast.error("مشکلی در ثبت رزرو پیش آمده است");

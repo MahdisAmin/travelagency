@@ -1,3 +1,4 @@
+//next
 import { useRouter, useSearchParams } from "next/navigation";
 
 const useQuery = () => {

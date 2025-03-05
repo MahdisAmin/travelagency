@@ -1,9 +1,16 @@
-import React from 'react'
+"use client";
+
+import UserInfo from "@/components/elements/UserInfo";
+import { useGetUserData } from "@/config/services/query";
+import React from "react";
 
 function UserProfile() {
-  return (
-    <div>UserProfile</div>
-  )
+  const { data } = useGetUserData();
+  console.log(data);
+
+    return <div>
+        <UserInfo data={ data} />
+  </div>;
 }
 
-export default UserProfile
+export default UserProfile;

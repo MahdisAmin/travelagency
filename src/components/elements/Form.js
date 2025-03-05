@@ -1,16 +1,22 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { Controller, useForm } from "react-hook-form";
 import Image from "next/image";
-
-const PassengerForm = ({ formData, onFormValidityChange }) => {
+const PassengerForm = ({
+  formData,
+  onFormValidityChange,
+  onFormDataChange,
+}) => {
   const {
     register,
     handleSubmit,
     control,
     formState: { isValid, errors },
+    setValue, // برای تنظیم مقادیر از دست رفته
+    watch, // برای نظارت بر مقادیر وارد شده
   } = useForm({
     mode: "onChange",
   });
@@ -20,13 +26,26 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
   }, [isValid, onFormValidityChange]);
 
   const validateNationalCode = (value) => {
-    if (!value) return "کد ملی الزامی است"; // اگر خالی بود
-    if (value.length !== 10) return "کد ملی باید ۱۰ رقمی باشد"; // اگر ۱۰ رقمی نبود
-    return true; // اگر معتبر بود
+    if (!value) return "کد ملی الزامی است";
+    if (value.length !== 10) return "کد ملی باید ۱۰ رقمی باشد";
+    return true;
+  };
+
+  const onSubmit = (data) => {
+    console.log("Form data:", data);
+    if (data.birthDate) {
+      console.log("تاریخ تولد:", data.birthDate);
+    } else {
+      console.log("تاریخ تولد خالی است");
+    }
+    onFormDataChange(data); // ارسال داده‌های فرم به والد
   };
 
   return (
-    <form className="grid grid-cols-12 gap-4 p-10 border border-gray-300 rounded-lg md:max-w-[800px] md:bg-white">
+    <form
+      className="grid grid-cols-12 gap-4 p-10 border border-gray-300 rounded-lg md:max-w-[800px] md:bg-white"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="flex w-[300px] md:col-span-12 md:items-center">
         <img src="/images/svgs/user.svg" alt="user" />
         <h3 className="font-bold text-lg mr-2">{formData.title}</h3>
@@ -52,9 +71,12 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
           {...register("gender", { required: true })}
         >
           <option value="">{formData.genderPlaceholder}</option>
-          <option value="male">{formData.genderOptions.male}</option>
-          <option value="female">{formData.genderOptions.female}</option>
+          <option value="male">{formData.genderOptions?.male || "مرد"}</option>
+          <option value="female">
+            {formData.genderOptions?.female || "زن"}
+          </option>
         </select>
+
         {errors.gender && (
           <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
             {errors.gender.message}
@@ -88,7 +110,6 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
             className="md:mr-4"
             alt="date"
           />
-
           <Controller
             name="birthDate"
             control={control}
@@ -97,7 +118,10 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
               <DatePicker
                 {...field}
                 selected={field.value}
-                onChange={(date) => field.onChange(date)}
+                onChange={(date) => {
+                  const formattedDate = date ? date.format("YYYY-MM-DD") : null;
+                  field.onChange(formattedDate); 
+                }}
                 placeholder={formData.birthDatePlaceholder}
                 className="outline-none w-full"
                 locale={persian_fa}
@@ -111,6 +135,7 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
               />
             )}
           />
+
           {errors.birthDate && (
             <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
               {errors.birthDate.message}
@@ -118,6 +143,10 @@ const PassengerForm = ({ formData, onFormValidityChange }) => {
           )}
         </div>
       </div>
+
+      <button type="submit" className="mt-4">
+        Submit
+      </button>
     </form>
   );
 };

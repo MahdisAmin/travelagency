@@ -6,7 +6,7 @@ function layout({children}) {
   return (
     <div>
       <div className="grid-cols-12 p-10 grid md:grid-cols-4 gap-6 font-bold">
-        <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col">
+              <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col md:justify-evenly md:max-h-[150px] ">
           <li className="p-2 flex ">
             <Image
               src="/images/svgs/peo.svg"

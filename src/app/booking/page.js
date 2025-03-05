@@ -39,12 +39,14 @@ function Booking() {
 
   const handleFinalSubmit = () => {
     if (isFormValid) {
+      console.log(formData);
+      
       mutate(
         {
-          nationalCode: formData?.nationalCodePlaceholder,
-          fullName: formData?.fullNamePlaceholder,
-          gender: formData?.genderOptions,
-          birthDate: formData?.birthDatePlaceholder,
+          nationalCode: formData?.nationalCode,
+          fullName: formData?.fullName,
+          gender: formData?.gender,
+          birthDate: formData?.birthDate,
         },
         {
           onSuccess: () => {

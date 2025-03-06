@@ -6,6 +6,7 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import { Controller, useForm } from "react-hook-form";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { useUpdatePersonalInfo } from "@/config/services/mutations";
 const PassengerForm = ({
   formData,
   onFormValidityChange,
@@ -16,12 +17,10 @@ const PassengerForm = ({
     handleSubmit,
     control,
     formState: { isValid, errors },
-    setValue, // برای تنظیم مقادیر از دست رفته
-    watch, // برای نظارت بر مقادیر وارد شده
   } = useForm({
     mode: "onChange",
   });
-
+  const { mutate } = useUpdatePersonalInfo();
   useEffect(() => {
     onFormValidityChange(isValid);
   }, [isValid, onFormValidityChange]);
@@ -33,14 +32,9 @@ const PassengerForm = ({
   };
 
   const onSubmit = (data) => {
-    console.log("Form data:", data);
-    if (data.birthDate) {
-      console.log("تاریخ تولد:", data.birthDate);
-    } else {
-      console.log("تاریخ تولد خالی است");
-    }
-    onFormDataChange(data); 
-    toast.success("اطلاعات ذخیره شد")
+    mutate(data);
+    onFormDataChange(data);
+    toast.success("اطلاعات ذخیره شد");
   };
 
   return (
@@ -50,16 +44,15 @@ const PassengerForm = ({
     >
       <div className="flex w-[300px] md:col-span-12 md:items-center">
         <img src="/images/svgs/user.svg" alt="user" />
-        <h3 className="font-bold text-lg mr-2">{formData.title}</h3>
+        <h3 className="font-bold text-lg mr-2"></h3>
       </div>
 
       <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <input
           type="text"
-          placeholder={formData.fullNamePlaceholder}
+          placeholder="نام و نام خانوادگی"
           className="placeholder-black outline-none"
           {...register("fullName", { required: "این فید الزامی است" })}
-          
         />
         {errors.fullName && (
           <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
@@ -72,13 +65,10 @@ const PassengerForm = ({
         <select
           className="outline-none w-full"
           {...register("gender", { required: "یکی از گزینه هارا انتخاب کنید" })}
-          
         >
-          <option value="">{formData.genderPlaceholder}</option>
-          <option value="male">{formData.genderOptions?.male || "مرد"}</option>
-          <option value="female">
-            {formData.genderOptions?.female || "زن"}
-          </option>
+          <option value="">جنسیت</option>
+          <option value="male">مرد</option>
+          <option value="female">زن</option>
         </select>
 
         {errors.gender && (
@@ -91,7 +81,7 @@ const PassengerForm = ({
       <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <input
           type="text"
-          placeholder={formData.nationalCodePlaceholder}
+          placeholder="کد ملی"
           className="placeholder-black outline-none"
           {...register("nationalCode", {
             required: "کد ملی صحیح وارد کنید",
@@ -126,7 +116,7 @@ const PassengerForm = ({
                   const formattedDate = date ? date.format("YYYY-MM-DD") : null;
                   field.onChange(formattedDate);
                 }}
-                placeholder={formData.birthDatePlaceholder}
+                placeholder="تاریخ تولد"
                 className="outline-none w-full"
                 locale={persian_fa}
                 calendar={persian}

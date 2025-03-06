@@ -25,7 +25,7 @@ function layout({children}) {
               height={16}
               alt="profile"
             ></Image>
-            <Link href="/profile" className="mr-2">
+            <Link href="/profile/mytours" className="mr-2">
               تورهای من
             </Link>
           </li>
@@ -36,7 +36,7 @@ function layout({children}) {
               height={16}
               alt="profile"
             ></Image>
-            <Link href="/profile" className="mr-2">
+            <Link href="/profile/transactions" className="mr-2">
               تراکنش ها
             </Link>
           </li>

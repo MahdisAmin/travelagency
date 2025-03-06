@@ -4,7 +4,7 @@ import React from "react";
 function UserInfo({ data }) {
   return (
     <div>
-      <div className="p-3 border border-gray-300 rounded-lg">
+      <div className="p-5 border border-gray-300 rounded-lg">
         <p>اطلاعات حساب کاربری</p>
         <div className="flex justify-between my-3 font-normal">
           <p className="text-gray-600 ">شماره موبایل</p>

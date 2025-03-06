@@ -5,6 +5,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { Controller, useForm } from "react-hook-form";
 import Image from "next/image";
+import toast from "react-hot-toast";
 const PassengerForm = ({
   formData,
   onFormValidityChange,
@@ -38,7 +39,8 @@ const PassengerForm = ({
     } else {
       console.log("تاریخ تولد خالی است");
     }
-    onFormDataChange(data); // ارسال داده‌های فرم به والد
+    onFormDataChange(data); 
+    toast.success("اطلاعات ذخیره شد")
   };
 
   return (
@@ -56,7 +58,8 @@ const PassengerForm = ({
           type="text"
           placeholder={formData.fullNamePlaceholder}
           className="placeholder-black outline-none"
-          {...register("fullName", { required: true })}
+          {...register("fullName", { required: "این فید الزامی است" })}
+          
         />
         {errors.fullName && (
           <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
@@ -68,7 +71,8 @@ const PassengerForm = ({
       <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">
         <select
           className="outline-none w-full"
-          {...register("gender", { required: true })}
+          {...register("gender", { required: "یکی از گزینه هارا انتخاب کنید" })}
+          
         >
           <option value="">{formData.genderPlaceholder}</option>
           <option value="male">{formData.genderOptions?.male || "مرد"}</option>
@@ -78,7 +82,7 @@ const PassengerForm = ({
         </select>
 
         {errors.gender && (
-          <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full">
+          <p className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0 w-full ">
             {errors.gender.message}
           </p>
         )}
@@ -120,7 +124,7 @@ const PassengerForm = ({
                 selected={field.value}
                 onChange={(date) => {
                   const formattedDate = date ? date.format("YYYY-MM-DD") : null;
-                  field.onChange(formattedDate); 
+                  field.onChange(formattedDate);
                 }}
                 placeholder={formData.birthDatePlaceholder}
                 className="outline-none w-full"
@@ -144,9 +148,14 @@ const PassengerForm = ({
         </div>
       </div>
 
-      <button type="submit" className="mt-4">
-        Submit
-      </button>
+      <div>
+        <button
+          type="submit"
+          className=" p-2 bg-primary-green text-white w-[120px] rounded-xl"
+        >
+          ثبت اطلاعات
+        </button>
+      </div>
     </form>
   );
 };

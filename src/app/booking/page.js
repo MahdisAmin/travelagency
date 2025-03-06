@@ -38,9 +38,9 @@ function Booking() {
   };
 
   const handleFinalSubmit = () => {
-    if (isFormValid) {
+    if (isFormValid && formData) {
       console.log(formData);
-      
+
       mutate(
         {
           nationalCode: formData?.nationalCode,
@@ -54,7 +54,7 @@ function Booking() {
             router.push("/payment?status=success");
           },
           onError: () => {
-            toast.error("مشکلی در ثبت رزرو پیش آمده است");
+            toast.error("لطفا اطلاعات خود را ثبت کنید");
           },
         }
       );
@@ -109,7 +109,7 @@ function Booking() {
               onClick={handleFinalSubmit}
               disabled={!isFormValid}
               className={`w-full rounded-lg bg-primary-green text-white text-center p-2 mt-3 cursor-pointer ${
-                !isFormValid ? " cursor-progress opacity-50" : ""
+                !isFormValid ? " cursor-not-allowed opacity-50" : ""
               }`}
             >
               ثبت و خرید نهایی

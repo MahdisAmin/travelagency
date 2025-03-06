@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import api from "../core/api";
 
 export const useGetUserData = () => {
-  const queryFn = () => api.get("/user/profile");
+  const queryFn = (data) => api.get("/user/profile", data);
   const queryKey = ["user-data"];
   return useQuery({ queryFn, queryKey });
 };
@@ -19,10 +19,9 @@ export const useGetBasket = () => {
 
   return useQuery({ queryKey, queryFn });
 };
+export const useGetUserTours = () => {
+  const queryFn = () => api.get("user/tours");
+  const queryKey = ["user-tours"];
 
-export const useGetUserProfile = () => {
-  const queryKey = ["profile"];
-  const queryFn = () => api.get("/user/profile");
-
-  return useQuery({ queryKey, queryFn });
+  return useQuery({ queryFn, queryKey });
 };

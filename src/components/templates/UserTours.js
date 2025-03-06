@@ -15,7 +15,7 @@ function UserTours({ tour }) {
   return (
     <div className="md:border md:border-gray-300 md:rounded-lg md:mb-5 md:px-2 md:py-2 ">
       <div className="border border-gray-300 p-2 rounded-lg mb-5">
-        <div className="flex justify-between py-3 px-8 font-normal">
+        <div className="flex justify-between py-3 px-8 font-normal md:max-w-[700px]">
           <p className="flex items-center ">
             <Image
               src="/images/svgs/sun.svg"

@@ -6,7 +6,7 @@ function UserInfo({ data }) {
     <div>
       <div className="p-5 border border-gray-300 rounded-lg">
         <p>اطلاعات حساب کاربری</p>
-        <div className="flex justify-between my-3 font-normal">
+        <div className="flex justify-between my-3 font-normal ">
           <p className="text-gray-600 ">شماره موبایل</p>
           <span>{toPersianNumber(+data?.data?.mobile)}</span>
         </div>

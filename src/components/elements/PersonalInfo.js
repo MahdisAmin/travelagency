@@ -13,27 +13,31 @@ function PersonalInfo({ data }) {
             ویرایش اطلاعات
           </button>
         </div>
-        <div className="flex justify-between my-3 ">
-          <p>نام و نام خانوادگی</p>
-          <span className="font-semibold">{data?.data.fullName}</span>
+        <div className="flex flex-col md:flex-row md:justify-between md:flex-wrap md:max-w-[700px] ">
+          <div className="flex justify-between my-3 ">
+            <p className="md:ml-2">نام و نام خانوادگی</p>
+            <span className="font-semibold">{data?.data.fullName}</span>
+          </div>
+          <div className="flex justify-between my-3 ">
+            <p className="md:ml-2">کد ملی</p>
+            <span className="font-semibold">
+              {toPersianNumber(+data?.data.nationalCode)}
+            </span>
+          </div>
         </div>
-        <div className="flex justify-between my-3 ">
-          <p>کد ملی</p>
-          <span className="font-semibold">
-            {toPersianNumber(+data?.data.nationalCode)}
-          </span>
-        </div>
-        <div className="flex justify-between my-3 ">
-          <p>جنسیت</p>
-          {data?.data.gender === "male" ? (
-            <span className="font-semibold">مرد</span>
-          ) : (
-            <span className="font-semibold">زن</span>
-          )}
-        </div>
-        <div className="flex justify-between my-3 ">
-          <p>تاریخ تولد</p>
-          <span className="font-semibold">{data?.data.birthDate}</span>
+        <div className="flex flex-col md:flex-row md:justify-between md:flex-wrap md:max-w-[700px] ">
+          <div className="flex justify-between my-3 ">
+            <p className="md:ml-2">جنسیت</p>
+            {data?.data.gender === "male" ? (
+              <span className="font-semibold">مرد</span>
+            ) : (
+              <span className="font-semibold">زن</span>
+            )}
+          </div>
+          <div className="flex justify-between my-3 ">
+            <p className="md:ml-2">تاریخ تولد</p>
+            <span className="font-semibold">{data?.data.birthDate}</span>
+          </div>
         </div>
       </div>
     </div>

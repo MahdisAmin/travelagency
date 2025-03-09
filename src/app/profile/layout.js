@@ -1,15 +1,23 @@
+"use client";
+
 import AuthProvider from "@/components/provider/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import React from "react";
 
 function layout({ children }) {
+  const pathname = usePathname();
+  const isActive = (path) => {
+    return pathname === path ? "bg-green-300 text-white rounded " : "";
+  };
   return (
     <div>
       <AuthProvider>
         <div className="grid-cols-12 p-10 grid md:grid-cols-4 gap-6 font-bold">
-          <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col md:justify-evenly md:max-h-[150px] ">
-            <li className="p-2 flex ">
+          <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col md:justify-evenly md:max-h-[125px] ">
+            <li className={`p-2 flex ${isActive("/profile")}`}>
               <Image
                 src="/images/svgs/peo.svg"
                 width={16}
@@ -20,7 +28,7 @@ function layout({ children }) {
                 پروفایل من
               </Link>
             </li>
-            <li className="p-2 flex">
+            <li className={`p-2 flex ${isActive("/profile/mytours")}`}>
               <Image
                 src="/images/svgs/sun.svg"
                 width={16}
@@ -31,7 +39,7 @@ function layout({ children }) {
                 تورهای من
               </Link>
             </li>
-            <li className="p-2 flex">
+            <li className={`p-2 flex ${isActive("/profile/transactions")}`}>
               <Image
                 src="/images/svgs/convert.svg"
                 width={16}

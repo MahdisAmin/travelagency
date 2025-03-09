@@ -3,20 +3,17 @@ import { useGetUserData } from "@/config/services/query";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import Loader from "../elements/Loader";
 
 function AuthProvider({ children }) {
   const router = useRouter();
-  const { data, isPending } = useGetUserData();
-  const [hasShownError, setHasShownError] = useState(false);
-  useEffect(() => {
-    if (!isPending && !data?.data) {
-      toast.error("لطفا ابتدا وارد شوید");
-      setHasShownError(true);
-      router.push("/");
-    }
-  }, [data]);
+  const { isPending, data } = useGetUserData();
 
-  if (isPending) return <div>Loading...</div>;
+  useEffect(() => {
+    if (!isPending && !data?.data) router.push("/");
+  }, [isPending]);
+
+  if (isPending) return <Loader />;
   return children;
 }
 

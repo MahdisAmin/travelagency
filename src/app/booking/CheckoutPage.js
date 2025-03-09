@@ -1,13 +1,13 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+
+import React, { useState } from "react";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import { formatNumber, howmanyDays, toPersianNumber } from "@/utils/extras";
 
 import { useRouter } from "next/navigation";
-
-import { useGetBasket, useGetUserData } from "@/config/services/query";
+import Loader from "@/components/elements/Loader";
+import { useGetBasket } from "@/config/services/query";
 import Link from "next/link";
 import PassengerForm from "@/components/elements/Form";
 import toast from "react-hot-toast";
@@ -17,7 +17,7 @@ function CheckOutPage() {
   const router = useRouter();
   const { mutate } = useCheckout();
   const [isFormValid, setIsFormValid] = useState(false);
- 
+
   const [formData, setFormData] = useState();
 
   const handleFormValidityChange = (isValid) => {
@@ -52,10 +52,10 @@ function CheckOutPage() {
     }
   };
 
-  const { data } = useGetBasket();
+  const { data, isPending } = useGetBasket();
   const day = howmanyDays(data?.data.startDate, data?.data.endDate);
   const night = +day - 1;
-
+  if (isPending) return <Loader />;
   if (!data) {
     return (
       <div className="container mx-auto p-7 flex flex-col items-center justify-center md:bg-gray-100 rounded-xl my-9">

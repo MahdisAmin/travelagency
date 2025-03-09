@@ -6,7 +6,6 @@ import React from "react";
 
 function Transactions() {
   const { data } = useGetUserTransactions();
-  console.log(data);
   return (
     <div>
       <div className="flex justify-between py-3 px-8 bg-gray-300 rounded-lg font-normal">

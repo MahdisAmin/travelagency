@@ -34,7 +34,7 @@ function Dropdown({ show, phone }) {
           ></Image>
         </div>
         <div className="mr-1 text-[12px] md:text-sm">
-          <Link href="/">اطلاعات حساب کاربری</Link>
+          <Link href="/profile">اطلاعات حساب کاربری</Link>
         </div>
       </div>
       <div className="flex h-1/3 items-center mr-2">

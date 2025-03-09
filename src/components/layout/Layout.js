@@ -10,6 +10,7 @@ import Dropdown from "../elements/DropDown";
 import { toPersianNumber } from "@/utils/extras";
 import Link from "next/link";
 import { Toaster } from "react-hot-toast";
+import { usePathname } from "next/navigation";
 export const ModalContext = createContext();
 function Layout({ children }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -20,7 +21,10 @@ function Layout({ children }) {
   const dropDownHandler = () => {
     setShowDropdown(!showDropdown);
   };
-
+  const pathname = usePathname()
+   const isActive = (path) => {
+     return pathname === path ? "text-green-500 " : "";
+   };
   return (
     <ModalContext.Provider value={{ setShowModal }}>
       <header>
@@ -34,7 +38,7 @@ function Layout({ children }) {
                 alt="logo"
               ></Image>
               <ul className="flex items-center  mr-9">
-                <Link href="/" className="m-4">
+                <Link href="/" className={`m-4 ${isActive("/")} `}>
                   صفحه اصلی
                 </Link>
                 <Link href="/" className="m-4">

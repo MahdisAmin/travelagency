@@ -1,4 +1,4 @@
-import { toPersianNumber } from "@/utils/extras";
+import { formatNumber } from "@/utils/extras";
 import Link from "next/link";
 import React from "react";
 
@@ -27,7 +27,7 @@ function Cards({ tourList }) {
                 رزرو
               </Link>
               <p className="text-blue-500">
-                {toPersianNumber(price)}{" "}
+                {formatNumber(price)}{" "}
                 <span className="text-primary-gray mr-1">تومان</span>
               </p>
             </div>

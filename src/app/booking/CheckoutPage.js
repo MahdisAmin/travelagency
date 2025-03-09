@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
-import { howmanyDays, toPersianNumber } from "@/utils/extras";
+import { formatNumber, howmanyDays, toPersianNumber } from "@/utils/extras";
 
 import { useRouter } from "next/navigation";
 
@@ -92,7 +92,7 @@ function CheckOutPage() {
             <div className="flex items-center justify-between w-full mt-3">
               <p className="text-lg">قیمت نهایی</p>
               <h1 className="text-xl font-bold text-blue-500 mr-7">
-                {toPersianNumber(+data?.data.price)}
+                {formatNumber(+data?.data.price)}
                 <span className="text-sm text-gray-800"> تومان</span>
               </h1>
             </div>

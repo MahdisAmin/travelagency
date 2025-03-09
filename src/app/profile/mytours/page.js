@@ -5,7 +5,7 @@ import React from "react";
 
 function MyTours() {
   const { data } = useGetUserTours();
-  console.log(data);
+  
   return (
     <div>
       {data && data?.data?.map((tour) => (<UserTours key={tour.id} tour={tour} />))}

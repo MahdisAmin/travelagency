@@ -1,3 +1,5 @@
+import moment from "jalali-moment";
+
 export function toPersianNumber(number) {
   const persianMap = new Map([
     ["0", "۰"],
@@ -18,6 +20,11 @@ export function toPersianNumber(number) {
     .map((digit) => persianMap.get(digit) || digit)
     .join("");
 }
+
+export const formatNumber = (num) => {
+  const formatted = num.toLocaleString();
+  return toPersianNumber(formatted);
+};
 export const howmanyDays = (startDate, endDate) => {
   const start = new Date(startDate);
   const end = new Date(endDate);
@@ -30,3 +37,9 @@ export const isValidMobile = (val) => {
   return regex;
 };
 
+export const turnDateToFa = (date) => {
+  const jalaliDate = toPersianNumber(
+    moment(date).locale("fa").format("HH:mm -YYYY/MM/DD ")
+  );
+  return jalaliDate;
+};

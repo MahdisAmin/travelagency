@@ -6,7 +6,7 @@ function PersonalInfo({ data }) {
   return (
     <div>
       <div className="p-5 border border-gray-300 rounded-lg mt-3 font-normal">
-        <div className="flex justify-between">
+        <div className="flex justify-between font-bold">
           <p>اطلاعات شخصی</p>
           <button className="text-[#009ECA] flex">
             <img src="/images/svgs/edit.svg" alt="edit" className="ml-1" />

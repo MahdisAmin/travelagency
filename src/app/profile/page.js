@@ -1,5 +1,6 @@
 "use client";
 
+import BankacoountInfo from "@/components/elements/BankacoountInfo";
 import PersonalInfo from "@/components/elements/PersonalInfo";
 import UserInfo from "@/components/elements/UserInfo";
 import { useGetUserData, useGetUserTours } from "@/config/services/query";
@@ -13,6 +14,7 @@ function UserProfile() {
     <div>
       <UserInfo data={data} />
       <PersonalInfo data={data} />
+      <BankacoountInfo/>
     </div>
   );
 }

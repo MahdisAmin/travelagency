@@ -1,8 +1,8 @@
-import { serverFetch } from "@/config/services/http";
 import Cards from "../elements/Cards";
 
 async function Tours({ tours }) {
-  if (!tours.length) return <p className="flex items-center mr-10">نتیجه ای یافت نشد</p>;
+  if (!tours.length)
+    return <p className="flex items-center mr-10">نتیجه ای یافت نشد</p>;
 
   return (
     <div className="">

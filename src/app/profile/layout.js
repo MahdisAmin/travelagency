@@ -10,7 +10,7 @@ import React from "react";
 function layout({ children }) {
   const pathname = usePathname();
   const isActive = (path) => {
-    return pathname === path ? "bg-green-300 text-white rounded " : "";
+    return pathname === path ? "text-green-500 border-b border-b-green-500 md:border-none md:bg-green-300 md:text-white md:rounded " : "";
   };
   return (
     <div>

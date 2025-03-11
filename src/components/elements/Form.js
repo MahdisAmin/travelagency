@@ -44,7 +44,7 @@ const PassengerForm = ({
     >
       <div className="flex w-[300px] md:col-span-12 md:items-center">
         <img src="/images/svgs/user.svg" alt="user" />
-        <h3 className="font-bold text-lg mr-2"></h3>
+        <h3 className="font-bold text-lg mr-2">مشخصات مسافر</h3>
       </div>
 
       <div className="col-span-12 md:col-span-4 border rounded-lg p-2 border-gray-600 relative">

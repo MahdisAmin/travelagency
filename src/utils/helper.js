@@ -15,4 +15,14 @@ const flattenObject = (obj, delimiter = ".", prefix = "") => {
 };
 const DateToIso = (date) => new Date(date).toISOString();
 
-export { flattenObject, DateToIso };
+const getEventStatus = (start, end) => {
+  const now = Date.now();
+  const startTime = new Date(start).getTime();
+  const endTime = new Date(end).getTime();
+
+  if (now < startTime) return "شروع نشده";
+  if (now > endTime) return "به اتمام رسیده";
+  return "در حال برگزاری";
+};
+
+export { flattenObject, DateToIso , getEventStatus };

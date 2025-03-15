@@ -10,13 +10,13 @@ import React from "react";
 function layout({ children }) {
   const pathname = usePathname();
   const isActive = (path) => {
-    return pathname === path ? "text-green-500 border-b border-b-green-500 md:border-none md:bg-green-300 md:text-white md:rounded " : "";
+    return pathname === path ? "text-green-500 border-b border-b-green-500 md:border-none md:bg-green-100 md:h-1/3 md:rounded  " : "";
   };
   return (
     <div>
       <AuthProvider>
         <div className="grid-cols-12 p-10 grid md:grid-cols-4 gap-6 font-bold">
-          <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col md:justify-evenly md:max-h-[125px] ">
+          <ul className="col-span-12 border-b md:border border-slate-300 md:divide-y  md:rounded-md md:col-span-1 flex justify-between md:flex-col md:justify-evenly md:max-h-[130px] ">
             <li className={`p-2 flex ${isActive("/profile")}`}>
               <Image
                 src="/images/svgs/peo.svg"

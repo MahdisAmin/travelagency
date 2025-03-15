@@ -19,10 +19,13 @@ const PassengerForm = ({
     formState: { isValid, errors },
   } = useForm({
     mode: "onChange",
+    defaultValues: formData,
   });
   const { mutate } = useUpdatePersonalInfo();
   useEffect(() => {
-    onFormValidityChange(isValid);
+    if (onFormValidityChange) {
+      onFormValidityChange(isValid);
+    }
   }, [isValid, onFormValidityChange]);
 
   const validateNationalCode = (value) => {

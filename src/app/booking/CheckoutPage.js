@@ -51,7 +51,14 @@ function CheckOutPage() {
       );
     }
   };
-
+  const cancleHandler = () => {
+    setFormData({
+      fullName: "",
+      gender: "",
+      nationalCode: "",
+      birthDate: "",
+    });
+  };
   const { data, isPending } = useGetBasket();
   const day = howmanyDays(data?.data.startDate, data?.data.endDate);
   const night = +day - 1;
@@ -80,6 +87,7 @@ function CheckOutPage() {
               formData={formData}
               onFormValidityChange={handleFormValidityChange}
               onFormDataChange={handleFormDataChange}
+              onCancel={cancleHandler}
             />
           </div>
           <div className="flex flex-col justify-between items-center w-full border border-gray-300 rounded-xl p-5 mt-7 md:w-[300px] bg-white md:mt-0">

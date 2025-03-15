@@ -16,6 +16,9 @@ function PersonalInfo({ data }) {
     setPersonalData(formData);
     setIsEditing(false);
   };
+    const handleCancel = () => {
+      setIsEditing(false);
+    };
 
   return (
     <div>
@@ -24,6 +27,7 @@ function PersonalInfo({ data }) {
           <PassengerForm
             formData={personalData}
             onFormDataChange={handleFormSubmit}
+            onCancel={handleCancel}
           />
         ) : (
           <>

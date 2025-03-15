@@ -11,6 +11,7 @@ const PassengerForm = ({
   formData,
   onFormValidityChange,
   onFormDataChange,
+  onCancel,
 }) => {
   const {
     register,
@@ -47,6 +48,11 @@ const PassengerForm = ({
       onError: () => toast.error("مشکلی پیش آمده دوباره امتحان کنید."),
     });
     onFormDataChange(data);
+  };
+  const cancleHandler = () => {
+    
+    reset(formData);
+    onCancel();
   };
 
   return (
@@ -150,12 +156,19 @@ const PassengerForm = ({
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col  md:flex-row  md:w-[500px] w-[350px] justify-center md:justify-start items-center">
         <button
           type="submit"
-          className=" p-2 bg-primary-green text-white w-[120px] rounded-xl"
+          className=" p-2 bg-primary-green text-white md:w-[120px] rounded-xl md:ml-4 md:mb-0 mb-5 w-full"
         >
           ثبت اطلاعات
+        </button>
+        <button
+          type="button"
+          onClick={cancleHandler}
+          className=" p-2  text-gray-600 w-full md:w-[120px] rounded-xl border border-gray-600"
+        >
+          انصراف
         </button>
       </div>
     </form>

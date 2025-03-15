@@ -53,4 +53,10 @@ const useUpdatePersonalInfo = () => {
   });
 };
 
-export { sendOtp, checkOtp, useAddToBasket , useCheckout , useUpdatePersonalInfo};
+export {
+  sendOtp,
+  checkOtp,
+  useAddToBasket,
+  useCheckout,
+  useUpdatePersonalInfo,
+};

@@ -17,6 +17,7 @@ const PassengerForm = ({
     handleSubmit,
     control,
     formState: { isValid, errors },
+    reset,
   } = useForm({
     mode: "onChange",
     defaultValues: formData,
@@ -34,10 +35,18 @@ const PassengerForm = ({
     return true;
   };
 
+  useEffect(() => {
+    reset(formData);
+  }, [formData, reset]);
+
   const onSubmit = (data) => {
-    mutate(data);
+    mutate(data, {
+      onSuccess: () => {
+        toast.success("اطلاعات  با موفقیت ذخیره شد.");
+      },
+      onError: () => toast.error("مشکلی پیش آمده دوباره امتحان کنید."),
+    });
     onFormDataChange(data);
-    toast.success("اطلاعات ذخیره شد");
   };
 
   return (

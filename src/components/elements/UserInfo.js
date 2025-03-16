@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { useUpdatePersonalInfo } from "@/config/services/mutations";
 import { toPersianNumber } from "@/utils/extras";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { isEmail } from "validator";
 
-function UserInfo({ data }) {
+function UserInfo({ data, refetch }) {
   const { mutate: updateProfile } = useUpdatePersonalInfo();
   const [isEditing, setIsEditing] = useState(false);
   const {
@@ -15,7 +15,7 @@ function UserInfo({ data }) {
     setValue,
   } = useForm();
 
-   const previousEmail = data?.data?.email;
+  const previousEmail = data?.data?.email;
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -27,8 +27,15 @@ function UserInfo({ data }) {
       return;
     }
 
-    updateProfile({ email: data.email });
-    setIsEditing(false);
+    updateProfile(
+      { email: data.email },
+      {
+        onSuccess: () => {
+          refetch();
+          setIsEditing(false);
+        },
+      }
+    );
   };
   return (
     <div>

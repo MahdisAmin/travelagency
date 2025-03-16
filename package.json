@@ -28,6 +28,7 @@
     "react18-input-otp": "^1.1.4",
     "select2": "^4.1.0-rc.0",
     "swiper": "^11.2.1",
+    "validator": "^13.12.0",
     "yup": "^1.6.1",
     "zaman": "^2.1.1"
   },

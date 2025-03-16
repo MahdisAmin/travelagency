@@ -2,6 +2,7 @@ import { sendOtp } from "@/config/services/mutations";
 import { isValidMobile, toPersianNumber } from "@/utils/extras";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { MdClose } from "react-icons/md";
 function SendOtp({ setShowModal, mobile, setMobile, setStep }) {
   const { isPending, mutate } = sendOtp();

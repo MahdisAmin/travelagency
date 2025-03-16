@@ -1,11 +1,15 @@
 "use client";
 import { toPersianNumber } from "@/utils/extras";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PassengerForm from "./Form";
 
 function PersonalInfo({ data }) {
   const [isEditing, setIsEditing] = useState(false);
   const [personalData, setPersonalData] = useState(data?.data);
+
+  useEffect(() => {
+    setPersonalData(data?.data);
+  }, [data]);
 
   const editHandler = () => {
     setIsEditing(true);
@@ -16,9 +20,9 @@ function PersonalInfo({ data }) {
     setPersonalData(formData);
     setIsEditing(false);
   };
-    const handleCancel = () => {
-      setIsEditing(false);
-    };
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
 
   return (
     <div>

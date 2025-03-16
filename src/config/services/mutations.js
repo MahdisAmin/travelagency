@@ -7,6 +7,11 @@ const sendOtp = () => {
   return useMutation({ mutationFn });
 };
 
+const resendOtp = () => {
+  const mutationFn = (data) =>
+    api.post("auth/send-otp", { ...data, isResend: true }); // ارسال درخواست برای ارسال مجدد
+  return useMutation({ mutationFn });
+};
 const checkOtp = () => {
   const queryClient = useQueryClient();
 
@@ -55,6 +60,7 @@ const useUpdatePersonalInfo = () => {
 
 export {
   sendOtp,
+  resendOtp,
   checkOtp,
   useAddToBasket,
   useCheckout,

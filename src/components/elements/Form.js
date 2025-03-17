@@ -170,7 +170,7 @@ const PassengerForm = ({
           <button
             type="button"
             onClick={cancleHandler}
-            className=" p-2  text-gray-600 w-full md:w-[120px] rounded-xl border border-gray-600"
+            className=" p-2  text-primary-green border border-primary-green w-full md:w-[120px] rounded-xl  "
           >
             انصراف
           </button>

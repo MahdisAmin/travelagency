@@ -52,7 +52,7 @@ function BankAccountForm({ cancel, setIsEditing, refetch, formData }) {
           className="border border-gray-300 rounded-lg p-2"
         />
         {!!errors?.shaba_code && (
-          <span className=" text-rose-500 text-[10px]">
+          <span className=" text-rose-500 text-[12px]">
             {errors?.shaba_code?.message}
           </span>
         )}
@@ -62,7 +62,7 @@ function BankAccountForm({ cancel, setIsEditing, refetch, formData }) {
           className="border border-gray-300 rounded-lg p-2"
         />
         {!!errors?.debitCard_code && (
-          <span className=" text-rose-500 text-[10px]">
+          <span className=" text-rose-500 text-[12px]">
             {errors?.debitCard_code?.message}
           </span>
         )}
@@ -73,20 +73,20 @@ function BankAccountForm({ cancel, setIsEditing, refetch, formData }) {
           className="border border-gray-300 rounded-lg p-2"
         />
         {!!errors?.accountIdentifier && (
-          <span className=" text-rose-500 text-[10px]">
+          <span className=" text-rose-500 text-[12px]">
             {errors?.accountIdentifier?.message}
           </span>
         )}
 
         <button
           type="submit"
-          className="!bg-green-500  text-white !border-0 px-5 py-1 rounded"
+          className="!bg-primary-green text-white !border-0 px-8 py-1 rounded-lg"
         >
-          ثبت
+          تایید
         </button>
         <button
           onClick={cancelHandler}
-          className="!bg-gray-300  text-gray-500 !border-0 px-5 py-1 rounded"
+          className=" text-primary-green border border-primary-green px-5 py-1 rounded-lg"
         >
           انصراف
         </button>

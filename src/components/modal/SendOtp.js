@@ -14,9 +14,9 @@ function SendOtp({ setShowModal, mobile, setMobile, setStep }) {
     mutate(
       { mobile },
       {
-        onSuccess: () => {
-          // toast.success(data?.data?.message);
-          // toast(data?.data?.code);
+        onSuccess: (data) => {
+          toast.success(data?.data?.message);
+          toast(data?.data?.code);
           setStep(2);
         },
         onError: (error) => {

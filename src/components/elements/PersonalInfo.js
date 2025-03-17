@@ -26,15 +26,17 @@ function PersonalInfo({ data }) {
 
   return (
     <div>
-      <div className="p-5 border border-gray-300 rounded-lg mt-3 font-normal">
-        {isEditing ? (
+      {isEditing ? (
+        <div className="mt-3 w-full rounded border border-gray-300 ">
           <PassengerForm
             formData={personalData}
             onFormDataChange={handleFormSubmit}
             onCancel={handleCancel}
           />
-        ) : (
-          <>
+        </div>
+      ) : (
+        <>
+          <div className="p-5 border border-gray-300 rounded-lg mt-3 font-normal">
             <div className="flex justify-between font-bold">
               <p>اطلاعات شخصی</p>
               <button className="text-[#009ECA] flex" onClick={editHandler}>
@@ -68,9 +70,9 @@ function PersonalInfo({ data }) {
                 <span className="font-semibold">{personalData?.birthDate}</span>
               </div>
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

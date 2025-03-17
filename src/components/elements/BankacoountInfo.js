@@ -10,13 +10,13 @@ function BankacoountInfo({ data ,refetch }) {
   const handleCancel = () => {
     setIsEditing(false);
   };
-  console.log(data?.data);
+  
 
   return (
     <div>
       <div className="p-5 border border-gray-300 rounded-lg mt-3 font-normal">
         {isEditing ? (
-          <BankAccountForm cancel={handleCancel} setIsEditing={setIsEditing} refetch={refetch} />
+          <BankAccountForm cancel={handleCancel} setIsEditing={setIsEditing} refetch={refetch} formData={data?.data?.payment} />
         ) : (
           <>
             <div className="flex justify-between font-bold">

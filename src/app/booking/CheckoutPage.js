@@ -82,7 +82,7 @@ function CheckOutPage() {
     <div className="md:bg-gray-200">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row p-7 md:gap-7">
-          <div>
+          <div className="border border-gray-300 md:bg-white rounded-lg">
             <PassengerForm
               formData={formData}
               onFormValidityChange={handleFormValidityChange}

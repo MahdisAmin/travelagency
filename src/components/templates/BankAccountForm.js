@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { bankAcountSchema } from "@/config/schema";
 import toast from "react-hot-toast";
 
-function BankAccountForm({ cancel, setIsEditing, refetch }) {
+function BankAccountForm({ cancel, setIsEditing, refetch, formData }) {
   const { mutate, isPending } = useUpdatePersonalInfo();
   const {
     register,
@@ -14,6 +14,7 @@ function BankAccountForm({ cancel, setIsEditing, refetch }) {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(bankAcountSchema),
+    defaultValues: formData,
   });
 
   const submitHandler = (data) => {

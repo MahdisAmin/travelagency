@@ -4,8 +4,9 @@ import { useUpdatePersonalInfo } from "@/config/services/mutations";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { bankAcountSchema } from "@/config/schema";
+import toast from "react-hot-toast";
 
-function BankAccountForm({ cancel, setIsEditing }) {
+function BankAccountForm({ cancel, setIsEditing, refetch }) {
   const { mutate, isPending } = useUpdatePersonalInfo();
   const {
     register,
@@ -22,12 +23,14 @@ function BankAccountForm({ cancel, setIsEditing }) {
       { payment: data },
       {
         onSuccess: (data) => {
-              toast.success(data?.data?.message);
-              setIsEditing(false)
+          console.log(data?.data?.payment);
+
+          toast.success(data?.data?.message);
+          setIsEditing(false);
+          refetch();
         },
-          onError: (error) => {
-              toast.success(error);
-            
+        onError: (error) => {
+          toast.success(error);
         },
       }
     );

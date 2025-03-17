@@ -15,7 +15,7 @@ function UserProfile() {
     <div>
       <UserInfo data={data} refetch={refetch} />
       <PersonalInfo data={data} />
-      <BankacoountInfo data={data} />
+      <BankacoountInfo data={data} refetch={refetch} />
     </div>
   );
 }

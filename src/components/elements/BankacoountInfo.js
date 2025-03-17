@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import BankAccountForm from "../templates/BankAccountForm";
 
-function BankacoountInfo({ data }) {
+function BankacoountInfo({ data ,refetch }) {
   const [isEditing, setIsEditing] = useState(false);
   const editHandler = () => {
     setIsEditing(true);
@@ -16,7 +16,7 @@ function BankacoountInfo({ data }) {
     <div>
       <div className="p-5 border border-gray-300 rounded-lg mt-3 font-normal">
         {isEditing ? (
-          <BankAccountForm cancel={handleCancel} setIsEditing={setIsEditing} />
+          <BankAccountForm cancel={handleCancel} setIsEditing={setIsEditing} refetch={refetch} />
         ) : (
           <>
             <div className="flex justify-between font-bold">

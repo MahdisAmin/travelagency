@@ -35,7 +35,7 @@ function CheckOtp({ mobile, setStep, setShowModal }) {
     mutate(
       { mobile, code },
       {
-        onSuccess: async (data) => {
+        onSuccess:  (data) => {
           setShowModal(false);
           setStep(1);
         },

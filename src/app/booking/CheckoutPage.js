@@ -29,9 +29,10 @@ function CheckOutPage() {
   };
 
   const handleFinalSubmit = () => {
+    if (!isFormValid || !formData) {
+      toast.error("لطفا اطلاعات خود را ثبت کنید");
+    }
     if (isFormValid && formData) {
-      console.log(formData);
-
       mutate(
         {
           nationalCode: formData?.nationalCode,
@@ -44,9 +45,8 @@ function CheckOutPage() {
             toast.success("رزرو شما با موفقیت ثبت شد");
             router.push("/payment?status=success");
           },
-          onError: () => {
-            toast.error("لطفا اطلاعات خود را ثبت کنید");
-          },
+
+          onError: () => {},
         }
       );
     }

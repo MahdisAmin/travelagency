@@ -9,7 +9,7 @@ function Menu({ setShoeMenu }) {
       className=" bg-gray-600 w-full h-full fixed top-0 left-0 z-50 bg-opacity-50"
       onClick={() => setShoeMenu(false)}
     >
-      <div className="w-[209px] h-[816px] rounded-xl  bg-white shadow-lg absolute -bottom-44  transition-all duration-1000 ease-in-out">
+      <div className="w-[209px] h-[816px] rounded-xl  bg-white shadow-lg absolute -bottom-40  transition-all duration-1000 ease-in-out">
         <ul className="p-4">
           <li className="flex items-center p-4 ">
             <Image

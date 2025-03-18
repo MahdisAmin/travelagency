@@ -68,7 +68,7 @@ function UserInfo({ data, refetch }) {
               <div className="flex flex-col relative">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="flex absolute left-28"
+                  className="flex absolute left-28 "
                 >
                   <input
                     type="email"
@@ -87,16 +87,16 @@ function UserInfo({ data, refetch }) {
                   )}
                   <button
                     type="submit"
-                    className="bg-primary-green text-white px-4 py-1 mr-2 rounded-lg mt-3"
+                    className="bg-primary-green text-white px-6 md:px-9 py-1 mr-2 rounded-lg mt-3"
                   >
                     تایید
                   </button>
                 </form>
                 <button
                   onClick={() => setIsEditing(false)}
-                  className="text-gray-500 mt-3 border border-gray-200 py-1 px-5 rounded-lg"
+                  className="mt-3  text-primary-green border border-primary-green py-[6px] px-5 md:px-8 rounded-lg -mr-10"
                 >
-                  لغو
+                  انصراف
                 </button>
               </div>
             )}
